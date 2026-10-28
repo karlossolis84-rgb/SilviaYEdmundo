@@ -1,0 +1,160 @@
+:root {
+    --bg-oscuro: #0A1128;
+    --bg-tarjeta: #001F54;
+    --dorado: #E0A96D;
+    --champagne: #F4E8C1;
+    --blanco: #FFFFFF;
+    --texto-mutado: #C0C0C0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-oscuro);
+    color: var(--blanco);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.portada {
+    padding: 40px 20px 20px 20px;
+    background: linear-gradient(180deg, #0A1128 0%, #001F54 100%);
+}
+
+.subtitulo {
+    color: var(--dorado);
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    color: var(--champagne);
+    margin: 10px 0;
+}
+
+.frase {
+    font-style: italic;
+    color: var(--gold-accent);
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.marco-foto, .marco-qr {
+    width: 250px;
+    height: 320px;
+    margin: 0 auto;
+    border: 3px solid var(--dorado);
+    border-radius: 12px;
+    padding: 6px;
+    background: rgba(224, 169, 109, 0.1);
+}
+
+.marco-qr {
+    width: 200px;
+    height: 200px;
+    background: #FFF;
+}
+
+.marco-foto img, .marco-qr img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.seccion {
+    padding: 30px 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.tarjeta {
+    background: rgba(0, 31, 84, 0.6);
+    border: 1px solid var(--dorado);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.tarjeta p {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.aviso {
+    color: var(--champagne);
+    font-weight: 600;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Reloj de Cuenta Regresiva */
+.reloj {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.caja-tiempo {
+    background: var(--bg-tarjeta);
+    border: 1px solid var(--dorado);
+    border-radius: 10px;
+    padding: 10px;
+    width: 22%;
+}
+
+.caja-tiempo span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--champagne);
+}
+
+.caja-tiempo small {
+    font-size: 0.7rem;
+    color: var(--texto-mutado);
+    text-transform: uppercase;
+}
+
+/* Botón RSVP */
+.btn-rsvp {
+    display: inline-block;
+    background: #25D366;
+    color: #FFF;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: 30px;
+    margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+/* Botón de Ubicación */
+.btn-ubicacion {
+    display: inline-block;
+    background: linear-gradient(135deg, #E0A96D 0%, #B8860B 100%);
+    color: #0A1128;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(224, 169, 109, 0.4);
+    transition: all 0.3s ease;
+}
+
+.nota-acceso {
+    font-size: 0.85rem;
+    color: var(--champagne);
+    margin-top: 10px;
+    border-top: 1px dashed var(--dorado);
+    padding-top: 10px;
+}
