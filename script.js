@@ -35,9 +35,9 @@ function toggleMusica() {
     }
 }
 
-// Cuenta regresiva para el 22 de Noviembre de 2026 a las 19:30 h
+// Cuenta regresiva para el 22 de Noviembre de 2026 a las 17:30 h
 function iniciarCuentaRegresiva() {
-    const fechaEvento = new Date("Nov 22, 2026 19:30:00").getTime();
+    const fechaEvento = new Date("Nov 22, 2026 17:30:00").getTime();
 
     const intervalo = setInterval(function() {
         const ahora = new Date().getTime();
