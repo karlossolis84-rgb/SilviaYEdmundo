@@ -145,18 +145,18 @@ select {
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
-/* TARJETAS Y FOTOS */
+/* TARJETAS Y SECCIONES CON ESPACIADO AMPLIADO */
 .tarjeta-seccion {
     background: rgba(13, 27, 42, 0.75);
     border: 1px solid rgba(212, 175, 55, 0.25);
     border-radius: 12px;
-    padding: 25px 20px;
-    margin-bottom: 30px;
+    padding: 30px 20px;
+    margin-bottom: 50px;
     text-align: center;
 }
 
 .bloque-foto {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 .contenedor-foto {
