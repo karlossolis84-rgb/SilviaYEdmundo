@@ -1,229 +1,263 @@
-:root {
-    --bg-oscuro: #0A1128;
-    --bg-tarjeta: #001F54;
-    --dorado: #E0A96D;
-    --champagne: #F4E8C1;
-    --blanco: #FFFFFF;
-    --texto-mutado: #C0C0C0;
-}
-
+/* RESET GENERAL */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: var(--bg-oscuro);
-    color: var(--blanco);
+    background-color: #0d1b2a; /* Azul marino profundo */
+    color: #e0e1dd;
     font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-.portada {
-    padding: 40px 20px 20px 20px;
-    background: linear-gradient(180deg, #0A1128 0%, #001F54 100%);
+/* MARCO MÓVIL Y FONDO CON BOTÁNICA */
+.pantalla-inicial, .invitacion-contenido {
+    width: 100%;
+    max-width: 450px;
+    background-color: #0f2338;
+    background-image: 
+        radial-gradient(circle at top left, rgba(46, 117, 89, 0.15), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(46, 117, 89, 0.15), transparent 40%);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    position: relative;
+    padding: 20px 15px;
 }
 
-.subtitulo {
-    color: var(--dorado);
+.oculto {
+    display: none;
+}
+
+/* TIPOGRAFÍA DORADA */
+.nombres-principales {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    font-size: 2.2rem;
     letter-spacing: 3px;
-    font-size: 0.85rem;
-    text-transform: uppercase;
+    text-align: center;
 }
 
-h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.8rem;
-    color: var(--champagne);
+.nombres-secundarios {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.subtitulo-dorado {
+    font-family: 'Great Vibes', cursive;
+    color: #f3e5ab;
+    font-size: 2.2rem;
+    text-align: center;
     margin: 10px 0;
 }
 
-.frase {
-    font-style: italic;
-    color: var(--gold-accent);
-    margin-bottom: 25px;
+.conector {
+    color: #d4af37;
+    text-align: center;
+    margin: 10px 0;
     font-size: 1.1rem;
 }
 
-.marco-foto, .marco-qr {
-    width: 250px;
-    height: 320px;
-    margin: 0 auto;
-    border: 3px solid var(--dorado);
-    border-radius: 12px;
-    padding: 6px;
-    background: rgba(224, 169, 109, 0.1);
+/* PANTALLA INICIAL Y SELLO DE LACRE */
+.pantalla-inicial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-.marco-qr {
-    width: 200px;
-    height: 200px;
-    background: #FFF;
-}
-
-.marco-foto {
-    width: 280px;       /* Ancho máximo de la tarjeta en el celular */
-    height: 350px;      /* Altura fija para que todas se vean ordenadas */
-    margin: 0 auto;
-    border: 3px solid var(--dorado);
-    border-radius: 12px;
-    padding: 6px;
-    background: rgba(224, 169, 109, 0.1);
-    overflow: hidden;   /* Esto evita que la foto se salga del marco si es muy grande */
-}
-
-.marco-foto img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;   /* Esto recubre el espacio de forma elegante sin deformar la cara de los novios */
-    border-radius: 6px;
-}
-
-.seccion {
-    padding: 30px 20px;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.tarjeta {
-    background: rgba(0, 31, 84, 0.6);
-    border: 1px solid var(--dorado);
+.tarjeta-bienvenida {
+    background: rgba(13, 27, 42, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.3);
     border-radius: 15px;
-    padding: 20px;
-    text-align: left;
-    margin-top: 15px;
+    padding: 40px 20px;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(5px);
 }
 
-.tarjeta p {
-    margin-bottom: 10px;
-    font-size: 0.95rem;
+.invitados-selector {
+    margin: 30px 0;
 }
 
-.aviso {
-    color: var(--champagne);
-    font-weight: 600;
-    margin-top: 15px;
+.pases-texto {
+    display: block;
+    margin-bottom: 8px;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+select {
+    background: #1b263b;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.sello-lacre {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #e6c667 0%, #b8860b 70%, #8b6508 100%);
+    border: 2px solid #fff3c4;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6), inset 0 0 10px rgba(0,0,0,0.4);
+    cursor: pointer;
+    margin: 20px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.sello-lacre:hover {
+    transform: scale(1.05);
+}
+
+.sello-lacre span {
+    font-family: 'Great Vibes', cursive;
+    color: #3d2600;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* BOTÓN DE AUDIO FLOTANTE */
+.boton-audio {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    background: #d4af37;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* SECCIONES Y TARJETAS */
+.tarjeta-seccion {
+    background: rgba(13, 27, 42, 0.75);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
+    padding: 25px 20px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
-/* Reloj de Cuenta Regresiva */
-.reloj {
+/* FOTOS DIFUMINADAS EN EL BORDE INFERIOR */
+.bloque-foto {
+    margin-bottom: 30px;
+}
+
+.contenedor-foto {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+.foto-difuminada {
+    width: 100%;
+    display: block;
+    /* Difuminado suave en la parte inferior */
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+/* FRASE */
+.frase-texto {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.6rem;
+    color: #f3e5ab;
+    line-height: 1.6;
+}
+
+/* CUENTA REGRESIVA */
+.fecha-destacada {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: #d4af37;
+    margin: 15px 0;
+}
+
+.fecha-destacada .mes {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.contador-grid {
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
 }
 
-.caja-tiempo {
-    background: var(--bg-tarjeta);
-    border: 1px solid var(--dorado);
-    border-radius: 10px;
-    padding: 10px;
-    width: 22%;
-}
-
 .caja-tiempo span {
     display: block;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--champagne);
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    color: #d4af37;
 }
 
-.caja-tiempo small {
-    font-size: 0.7rem;
-    color: var(--texto-mutado);
-    text-transform: uppercase;
+.caja-tiempo p {
+    font-size: 0.75rem;
+    color: #aaa;
 }
 
-/* Botón RSVP */
-.btn-rsvp {
+/* BOTONES */
+.boton-dorado, .boton-whatsapp {
     display: inline-block;
-    background: #25D366;
-    color: #FFF;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 14px 28px;
-    border-radius: 30px;
-    margin-top: 15px;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-}
-/* Botón de Ubicación */
-.btn-ubicacion {
-    display: inline-block;
-    background: linear-gradient(135deg, #E0A96D 0%, #B8860B 100%);
-    color: #0A1128;
-    font-weight: 600;
-    text-decoration: none;
     padding: 12px 25px;
     border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
     margin-top: 15px;
-    box-shadow: 0 4px 15px rgba(224, 169, 109, 0.4);
-    transition: all 0.3s ease;
-}
-
-.nota-acceso {
-    font-size: 0.85rem;
-    color: var(--champagne);
-    margin-top: 10px;
-    border-top: 1px dashed var(--dorado);
-    padding-top: 10px;
-}
-/* Pantalla de Bienvenida con Botón de Apertura */
-.portada-bienvenida {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #0A1128 0%, #001F54 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    transition: opacity 0.8s ease;
-}
-
-.contenido-bienvenida {
-    text-align: center;
-    padding: 20px;
-}
-
-.btn-abrir {
-    background: linear-gradient(135deg, #E0A96D 0%, #B8860B 100%);
-    color: #0A1128;
-    font-size: 1.1rem;
-    font-weight: 700;
-    padding: 15px 35px;
-    border: none;
-    border-radius: 30px;
     cursor: pointer;
-    margin-top: 25px;
-    box-shadow: 0 4px 20px rgba(224, 169, 109, 0.5);
-    transition: transform 0.2s;
+    border: none;
 }
 
-.btn-abrir:hover {
-    transform: scale(1.05);
+.boton-dorado {
+    background: linear-gradient(45deg, #b8860b, #e6c667);
+    color: #0d1b2a;
 }
 
-/* Clase para ocultar elementos */
-.oculto {
-    display: none;
+.boton-whatsapp {
+    background: #25d366;
+    color: #fff;
+    font-size: 1rem;
+    width: 100%;
 }
 
-/* Galería de más fotos */
-.grid-fotos {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 15px;
+.cursiva {
+    font-style: italic;
+    color: #ccc;
 }
 
-.grid-fotos img {
-    width: 45%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 2px solid var(--dorado);
+.separador-arriba {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.fecha-limite {
+    color: #d4af37;
+    margin-bottom: 10px;
+}
+
+.nota-confirmacion {
+    font-size: 0.85rem;
+    color: #bbb;
+    margin-bottom: 15px;
 }

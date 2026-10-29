@@ -1,93 +1,140 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bodas de Oro — Silvia & Edmundo</title>
-
-    <!-- Meta Tags para WhatsApp -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Bodas de Oro — Silvia & Edmundo">
-    <meta property="og:description" content="¡Celebramos 50 años de amor! Acompañanos en este día tan especial.">
-    <meta property="og:image" content="https://tu-usuario.github.io/tu-repositorio/foto.jpg">
-
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Boda de Oro - Silvia & Edmundo</title>
     <link rel="stylesheet" href="estilos.css">
+    <!-- Fuentes Elegantes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- PORTADA DE BIENVENIDA (SOBREPUESTA) -->
-    <div id="pantalla-bienvenida" class="portada-bienvenida">
-        <div class="contenido-bienvenida">
-            <p class="subtitulo">NUESTRAS BODAS DE ORO</p>
-            <h1>Silvia & Edmundo</h1>
-            <p class="frase">"50 años de amor y familia"</p>
-            <button id="btn-abrir" class="btn-abrir">Abrir Invitación 💌</button>
-        </div>
-    </div>
+    <!-- Audio de Fondo -->
+    <audio id="musicaFondo" src="cancion.mp3" loop></audio>
 
-    <!-- MÚSICA DE FONDO (Audio oculto) -->
-    <audio id="musica-fondo" loop>
-        <!-- Puedes cambiar 'cancion.mp3' por el archivo de música que subas a tu carpeta -->
-        <source src="cancion.mp3" type="audio/mp3">
-    </audio>
+    <!-- PANTALLA DE BIENVENIDA -->
+    <section class="pantalla-inicial" id="pantallaInicial">
+        <div class="tarjeta-bienvenida">
+            <h1 class="nombres-principales">EDMUNDO</h1>
+            <div class="conector">✨ y ✨</div>
+            <h1 class="nombres-principales">SILVIA</h1>
+            
+            <div class="invitados-selector">
+                <span class="pases-texto">Invitación para:</span>
+                <select id="selectPases" onchange="actualizarPases()">
+                    <option value="1">1 persona</option>
+                    <option value="2" selected>2 personas</option>
+                    <option value="3">3 personas</option>
+                    <option value="4">4 personas</option>
+                    <option value="5">5 personas</option>
+                </select>
+            </div>
+
+            <!-- Botón Sello de Lacre -->
+            <button class="sello-lacre" onclick="abrirInvitacion()">
+                <span>Abrir</span>
+            </button>
+        </div>
+    </section>
 
     <!-- CONTENIDO PRINCIPAL DE LA INVITACIÓN -->
-    <div id="invitacion-principal" class="oculto">
+    <main class="invitacion-contenido oculto" id="contenidoPrincipal">
         
-        <!-- ENCABEZADO Y FOTO PRINCIPAL -->
-        <header class="portada">
-            <p class="subtitulo">CELEBRAMOS 50 AÑOS</p>
-            <h1>Silvia & Edmundo</h1>
-            <p class="frase">"Su presencia será nuestro mejor regalo"</p>
-            <div class="marco-foto">
-                <img src="foto1.jpg" alt="Silvia y Edmundo">
-            </div>
-        </header>
+        <!-- Botón Flotante de Audio -->
+        <button class="boton-audio" id="btnAudio" onclick="toggleMusica()">🎵</button>
 
-        <!-- SECCIÓN DE MÁS FOTOS / GALERÍA -->
-        <section class="seccion galeria">
-            <h2>Nuestros Recuerdos</h2>
-            <div class="grid-fotos">
-                <img src="foto2.jpg" alt="Recuerdo 1">
-                <img src="foto3.jpg" alt="Recuerdo 2">
+        <!-- FOTO 1: LA PINTURA -->
+        <section class="bloque-foto">
+            <div class="contenedor-foto">
+                <img src="pintura.jpg" alt="Pintura Silvia y Edmundo" class="foto-difuminada">
             </div>
         </section>
 
-        <!-- CUENTA REGRESIVA -->
-        <section class="seccion contador-container">
-            <h2>Falta poco para el gran día</h2>
-            <div id="reloj" class="reloj">
-                <div class="caja-tiempo"><span id="dias">00</span><small>Días</small></div>
-                <div class="caja-tiempo"><span id="horas">00</span><small>Horas</small></div>
-                <div class="caja-tiempo"><span id="minutos">00</span><small>Min</small></div>
-                <div class="caja-tiempo"><span id="segundos">00</span><small>Seg</small></div>
+        <!-- FRASE DE LOS 50 AÑOS -->
+        <section class="tarjeta-seccion frase-seccion">
+            <div class="icono-corazon">🤍</div>
+            <p class="frase-texto">
+                "El amor verdadero no se cuenta en años, se cuenta en momentos y nosotros hemos vivido 50 años de momentos inolvidables."
+            </p>
+        </section>
+
+        <!-- FOTO 2: LA BODA -->
+        <section class="bloque-foto">
+            <div class="contenedor-foto">
+                <img src="boda.jpg" alt="Boda de Silvia y Edmundo" class="foto-difuminada">
             </div>
         </section>
 
-        <!-- DETALLES DEL EVENTO -->
-        <section class="seccion detalles">
-            <h2>Detalles de la Celebración</h2>
-            <div class="tarjeta">
-                <p><strong>🗓 Fecha:</strong> Domingo, 22 de Noviembre de 2026</p>
-                <p><strong>⏰ Hora:</strong> 7:30 PM</p>
-                <p><strong>📍 Lugar:</strong> La Loma Club de Golf — Terraza Las Acacias</p>
-                <p><strong>👔 Código de vestir:</strong> Formal</p>
-                <p class="nota-acceso"><strong>🚗 Importante:</strong> Acceso exclusivo por Caseta 2.</p>
+        <!-- CUENTA REGRESIVA Y FECHA -->
+        <section class="tarjeta-seccion">
+            <h2 class="nombres-secundarios">Edmundo & Silvia</h2>
+            <h3 class="subtitulo-dorado">Nuestra Boda de Oro</h3>
+            
+            <div class="fecha-destacada">
+                <span>22</span>
+                <span class="mes">NOV</span>
+                <span>26</span>
             </div>
-            <a href="https://maps.google.com/?q=La+Loma+Club+de+Golf+San+Luis+Potosi" target="_blank" class="btn-ubicacion">
-                📍 Abrir Ubicación en Google Maps
-            </a>
+
+            <!-- Contador en vivo -->
+            <div class="contador-grid">
+                <div class="caja-tiempo"><span id="dias">00</span><p>Días</p></div>
+                <div class="caja-tiempo"><span id="horas">00</span><p>Horas</p></div>
+                <div class="caja-tiempo"><span id="minutos">00</span><p>Minutos</p></div>
+                <div class="caja-tiempo"><span id="segundos">00</span><p>Segundos</p></div>
+            </div>
         </section>
 
-        <!-- BOTÓN DE CONFIRMACIÓN A WHATSAPP -->
-        <section class="seccion rsvp">
-            <h2>Confirmación de Asistencia</h2>
-            <p>Por favor, confírmanos tu asistencia.</p>
-            <a id="btn-whatsapp" href="#" class="btn-rsvp">Confirmar por WhatsApp 💬</a>
+        <!-- FOTO 3: 25 ANIVERSARIO -->
+        <section class="bloque-foto">
+            <div class="contenedor-foto">
+                <img src="aniversario25.jpg" alt="25 Aniversario Silvia y Edmundo" class="foto-difuminada">
+            </div>
         </section>
 
-    </div>
+        <!-- RECEPCIÓN Y UBICACIÓN -->
+        <section class="tarjeta-seccion">
+            <div class="icono-evento">👥</div>
+            <h3 class="subtitulo-dorado">Recepción</h3>
+            <p class="hora-evento">🕒 7:30 PM</p>
+            <p class="lugar-nombre"><strong>La Loma Club de Golf</strong><br>Terraza las acacias</p>
+            <p class="lugar-sub">Valle Alto</p>
+            <a href="https://maps.app.goo.gl/oMdEYcy1VY2HKUhXA" target="_blank" class="boton-dorado">Ver Mapa</a>
+        </section>
+
+        <!-- VESTIMENTA Y NOTA ESPECIAL -->
+        <section class="tarjeta-seccion">
+            <div class="caja-info">
+                <h3 class="subtitulo-dorado">Código de vestimenta</h3>
+                <p>Código de vestimenta formal</p>
+            </div>
+            
+            <div class="caja-info separador-arriba">
+                <h3 class="subtitulo-dorado">Nota especial</h3>
+                <p class="cursiva">Amamos a sus pequeños, pero este evento será solo para adultos...</p>
+            </div>
+        </section>
+
+        <!-- MENSAJE FINAL Y RSVP -->
+        <section class="tarjeta-seccion final-seccion">
+            <h3 class="subtitulo-dorado">#Su presencia será un gran regalo.</h3>
+            <p class="texto-social">
+                Comparte los momentos más lindos con nosotros usando nuestro hashtag en redes sociales. ¡Queremos revivir este día especial a través de tus ojos!
+            </p>
+
+            <div class="rsvp-box">
+                <p class="fecha-limite">Favor de confirmar asistencia antes del:<br><strong>15 de Noviembre</strong></p>
+                <p class="nota-confirmacion">Favor de indicar mensaje de confirmación y nombre completo de los invitados (<span id="cantidadPasesTexto">2 personas</span>).</p>
+                <button class="boton-whatsapp" onclick="enviarWhatsApp()">
+                    Confirmar por WhatsApp
+                </button>
+            </div>
+        </section>
+
+    </main>
 
     <script src="script.js"></script>
 </body>

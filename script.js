@@ -1,46 +1,74 @@
-// Abrir invitación y reproducir música
-document.getElementById('btn-abrir').addEventListener('click', function() {
-    // Ocultar pantalla de bienvenida
-    const bienvenida = document.getElementById('pantalla-bienvenida');
-    bienvenida.style.opacity = '0';
-    setTimeout(() => {
-        bienvenida.style.display = 'none';
-    }, 800);
+// Variable global de pases
+let pasesSeleccionados = 2;
 
-    // Mostrar contenido principal
-    document.getElementById('invitacion-principal').classList.remove('oculto');
+// Actualizar cantidad de pases dinámicamente
+function actualizarPases() {
+    const select = document.getElementById('selectPases');
+    pasesSeleccionados = select.value;
+    const texto = pasesSeleccionados == 1 ? '1 persona' : `${pasesSeleccionados} personas`;
+    document.getElementById('cantidadPasesTexto').innerText = texto;
+}
 
-    // Reproducir música
-    const musica = document.getElementById('musica-fondo');
-    musica.play().catch(error => {
-        console.log("El navegador requiere interacción para reproducir audio:", error);
-    });
-});
+// Abrir la invitación e iniciar audio
+function abrirInvitacion() {
+    document.getElementById('pantallaInicial').classList.add('oculto');
+    document.getElementById('contenidoPrincipal').classList.remove('oculto');
+    
+    // Reproducir audio
+    const audio = document.getElementById('musicaFondo');
+    audio.play().catch(e => console.log("El navegador bloqueó la reproducción automática:", e));
+    
+    // Iniciar cuenta regresiva
+    iniciarCuentaRegresiva();
+}
 
-// Fecha del evento: 22 de Noviembre de 2026, 19:30:00
-const fechaEvento = new Date('November 22, 2026 19:30:00').getTime();
-
-const reloj = setInterval(function() {
-    const ahora = new Date().getTime();
-    const diferencia = fechaEvento - ahora;
-
-    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
-
-    document.getElementById('dias').innerText = dias < 10 ? '0' + dias : dias;
-    document.getElementById('horas').innerText = horas < 10 ? '0' + horas : horas;
-    document.getElementById('minutos').innerText = minutos < 10 ? '0' + minutos : minutos;
-    document.getElementById('segundos').innerText = segundos < 10 ? '0' + segundos : segundos;
-
-    if (diferencia < 0) {
-        clearInterval(reloj);
-        document.getElementById('reloj').innerHTML = "<h3>¡Llegó el gran día!</h3>";
+// Alternar reproducción de música
+function toggleMusica() {
+    const audio = document.getElementById('musicaFondo');
+    const btn = document.getElementById('btnAudio');
+    if (audio.paused) {
+        audio.play();
+        btn.innerText = '🎵';
+    } else {
+        audio.pause();
+        btn.innerText = '🔇';
     }
-}, 1000);
+}
 
-// Configuración del botón de WhatsApp
-const telefono = "5214440000000"; // Reemplaza con tu número real con código de país y área
-const mensaje = encodeURIComponent("¡Hola! Con mucho gusto confirmo mi asistencia a las Bodas de Oro de Silvia y Edmundo. ✨");
-document.getElementById('btn-whatsapp').href = `https://wa.me/${telefono}?text=${mensaje}`;
+// Cuenta regresiva para el 22 de Noviembre de 2026 a las 19:30 h
+function iniciarCuentaRegresiva() {
+    const fechaEvento = new Date("Nov 22, 2026 19:30:00").getTime();
+
+    const intervalo = setInterval(function() {
+        const ahora = new Date().getTime();
+        const diferencia = fechaEvento - ahora;
+
+        if (diferencia < 0) {
+            clearInterval(intervalo);
+            document.getElementById("dias").innerText = "00";
+            document.getElementById("horas").innerText = "00";
+            document.getElementById("minutos").innerText = "00";
+            document.getElementById("segundos").innerText = "00";
+            return;
+        }
+
+        const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+        document.getElementById("dias").innerText = dias < 10 ? '0' + dias : dias;
+        document.getElementById("horas").innerText = horas < 10 ? '0' + horas : horas;
+        document.getElementById("minutos").innerText = minutos < 10 ? '0' + minutos : minutos;
+        document.getElementById("segundos").innerText = segundos < 10 ? '0' + segundos : segundos;
+    }, 1000);
+}
+
+// Enlace directo a WhatsApp
+function enviarWhatsApp() {
+    const telefono = "524442152155"; // Número de teléfono configurado
+    const textoPases = pasesSeleccionados == 1 ? "1 persona" : `${pasesSeleccionados} personas`;
+    const mensaje = encodeURIComponent(`Hola, confirmo mi asistencia para la Boda de Oro de Silvia y Edmundo (${textoPases}). Nombres de los invitados: `);
+    
+    window.open(`https://wa.me/${telefono}?text=${mensaje}`, '_blank');
+}
