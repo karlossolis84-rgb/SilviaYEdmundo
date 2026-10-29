@@ -58,6 +58,9 @@
         <!-- Botón Flotante de Audio -->
         <button class="boton-audio" id="btnAudio" onclick="toggleMusica()">🎵</button>
 
+        <!-- ESPACIO INICIAL -->
+        <div class="espaciador-grande"></div>
+
         <!-- FOTO 1: LA PINTURA -->
         <section class="bloque-foto">
             <div class="contenedor-foto">
@@ -65,7 +68,7 @@
             </div>
         </section>
 
-        <!-- FRASE DE LOS 50 AÑOS -->
+        <!-- FRASE DE LOS 50 AÑOS (SIN RECUADRO) -->
         <section class="seccion-limpia">
             <p class="frase-texto">
                 "El amor verdadero no se cuenta en años, se cuenta en momentos y nosotros hemos vivido 50 años de momentos inolvidables."
@@ -79,7 +82,7 @@
             </div>
         </section>
 
-        <!-- CUENTA REGRESIVA Y FECHA -->
+        <!-- CUENTA REGRESIVA Y FECHA (SIN RECUADRO Y CON PUNTOS) -->
         <section class="seccion-limpia">
             <h2 class="nombres-secundarios">Edmundo & Silvia</h2>
             <h3 class="subtitulo-dorado">Nuestra Boda de Oro</h3>
@@ -90,11 +93,14 @@
                 <span>26</span>
             </div>
 
-            <!-- Contador en vivo -->
+            <!-- Contador en vivo con puntos separadores -->
             <div class="contador-grid">
                 <div class="caja-tiempo"><span id="dias">00</span><p>Días</p></div>
+                <div class="separador-punto">:</div>
                 <div class="caja-tiempo"><span id="horas">00</span><p>Horas</p></div>
+                <div class="separador-punto">:</div>
                 <div class="caja-tiempo"><span id="minutos">00</span><p>Minutos</p></div>
+                <div class="separador-punto">:</div>
                 <div class="caja-tiempo"><span id="segundos">00</span><p>Segundos</p></div>
             </div>
         </section>
@@ -106,7 +112,7 @@
             </div>
         </section>
 
-        <!-- RECEPCIÓN Y UBICACIÓN -->
+        <!-- RECEPCIÓN Y UBICACIÓN (SIN RECUADRO) -->
         <section class="seccion-limpia">
             <h3 class="subtitulo-dorado">Recepción</h3>
             <p class="hora-evento">🕒 5:30 PM</p>
@@ -115,7 +121,7 @@
             <a href="https://maps.app.goo.gl/oMdEYcy1VY2HKUhXA" target="_blank" class="boton-dorado">Ver Mapa</a>
         </section>
 
-        <!-- VESTIMENTA Y NOTA ESPECIAL (SIN NINGÚN RECUADRO) -->
+        <!-- VESTIMENTA Y NOTA ESPECIAL (SIN RECUADROS) -->
         <section class="seccion-limpia">
             <div class="bloque-texto-libre">
                 <h3 class="subtitulo-dorado">Código de Vestimenta</h3>
@@ -128,8 +134,8 @@
             </div>
         </section>
 
-        <!-- RSVP (CONFIRMACIÓN) -->
-        <section class="seccion-limpia final-seccion">
+        <!-- RSVP (ESTE SÍ MANTIENE SU CUADRO/CAJA DE CONFIRMACIÓN) -->
+        <section class="seccion-rsvp">
             <div class="rsvp-box">
                 <p class="fecha-limite">Favor de confirmar asistencia antes del:<br><strong>15 de Noviembre</strong></p>
                 <p class="nota-confirmacion">Favor de indicar mensaje de confirmación y nombre completo de los invitados (<span id="cantidadPasesTexto">2 personas</span>).</p>

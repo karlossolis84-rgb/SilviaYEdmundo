@@ -8,7 +8,7 @@
 html, body {
     width: 100%;
     min-height: 100vh;
-    background-color: #07131d;
+    background-color: #050e16;
     color: #e0e1dd;
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
@@ -19,20 +19,21 @@ html, body {
     display: none !important;
 }
 
-/* CONTENEDOR PRINCIPAL CON HOJAS GRANDES DORADAS DIFUSAS DE FONDO */
+/* CONTENEDOR PRINCIPAL CON HOJAS Y DESTELLOS DORADOS DIFUSOS DE FONDO */
 .pantalla-inicial, .invitacion-contenido {
     width: 100%;
     max-width: 450px;
     margin: 0 auto;
     background-color: #0d1b2a;
     background-image: 
-        radial-gradient(ellipse at 10% 20%, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
-        radial-gradient(ellipse at 90% 60%, rgba(212, 175, 55, 0.10) 0%, transparent 60%),
-        radial-gradient(ellipse at 30% 90%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
-        linear-gradient(to bottom, #0d1b2a, #07131d);
+        radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 85% 40%, rgba(212, 175, 55, 0.18) 0%, transparent 50%),
+        radial-gradient(circle at 20% 75%, rgba(212, 175, 55, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 80% 90%, rgba(212, 175, 55, 0.20) 0%, transparent 50%),
+        linear-gradient(to bottom, #0d1b2a, #07131d, #050e16);
     background-attachment: fixed;
-    box-shadow: 0 0 25px rgba(0,0,0,0.7);
-    padding: 20px 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+    padding: 20px 25px;
 }
 
 /* PANTALLA INICIAL */
@@ -69,7 +70,7 @@ html, body {
 .subtitulo-dorado {
     font-family: 'Great Vibes', cursive;
     color: #f3e5ab;
-    font-size: 2.3rem;
+    font-size: 2.4rem;
     text-align: center;
     margin: 10px 0;
 }
@@ -145,26 +146,30 @@ select {
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
-/* SECCIONES LIMPIAS (SIN RECUADROS, TOTALMENTE INTEGRADAS AL FONDO) */
+.espaciador-grande {
+    height: 30px;
+}
+
+/* SECCIONES LIBRES (SIN RECUADROS, MUCHO ESPACIO) */
 .seccion-limpia {
     text-align: center;
-    margin-bottom: 60px;
-    padding: 10px 10px;
+    margin-bottom: 80px; /* Gran espacio entre secciones */
+    padding: 10px 5px;
 }
 
 .bloque-texto-libre {
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .separador-botanico {
-    margin-top: 40px;
+    margin-top: 50px;
     padding-top: 30px;
     border-top: 1px dashed rgba(212, 175, 55, 0.25);
 }
 
-/* FOTOS CON DIFUMINADO INFERIOR */
+/* FOTOS CON AMPLIO ESPACIO */
 .bloque-foto {
-    margin-bottom: 60px;
+    margin-bottom: 80px; /* Gran espacio entre imágenes y textos */
 }
 
 .contenedor-foto {
@@ -172,7 +177,7 @@ select {
     width: 100%;
     overflow: hidden;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
 }
 
 .foto-difuminada {
@@ -184,9 +189,10 @@ select {
 
 .frase-texto {
     font-family: 'Great Vibes', cursive;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     color: #f3e5ab;
     line-height: 1.6;
+    padding: 0 10px;
 }
 
 .fecha-destacada {
@@ -195,9 +201,9 @@ select {
     align-items: center;
     gap: 15px;
     font-family: 'Cinzel', serif;
-    font-size: 2.2rem;
+    font-size: 2.3rem;
     color: #d4af37;
-    margin: 15px 0;
+    margin: 20px 0;
 }
 
 .fecha-destacada .mes {
@@ -205,9 +211,12 @@ select {
     font-style: italic;
 }
 
+/* CONTADOR CON PUNTOS SEPARADORES */
 .contador-grid {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     margin-top: 25px;
 }
 
@@ -225,14 +234,22 @@ select {
     text-transform: uppercase;
 }
 
+.separador-punto {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: #d4af37;
+    font-weight: bold;
+    margin-top: -15px;
+}
+
 .hora-evento {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: #f3e5ab;
-    margin: 8px 0;
+    margin: 10px 0;
 }
 
 .lugar-nombre {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: #fff;
     margin: 5px 0;
 }
@@ -240,12 +257,12 @@ select {
 .lugar-sub {
     font-size: 0.95rem;
     color: #bbb;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .texto-claro {
     color: #e0e1dd;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
 }
 
 .boton-dorado, .boton-whatsapp {
@@ -265,6 +282,22 @@ select {
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
+/* ÚNICA CAJA CON RECUADRO (CONFIRMACIÓN) */
+.seccion-rsvp {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 20px 10px;
+}
+
+.rsvp-box {
+    background: rgba(13, 27, 42, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 15px;
+    padding: 30px 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+}
+
 .boton-whatsapp {
     background: #25d366;
     color: #fff;
@@ -276,13 +309,13 @@ select {
 .cursiva {
     font-style: italic;
     color: #ccc;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
 }
 
 .fecha-limite {
     color: #f3e5ab;
     margin-bottom: 12px;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
 }
 
 .nota-confirmacion {
