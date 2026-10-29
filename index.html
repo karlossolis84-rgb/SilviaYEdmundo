@@ -1,81 +1,94 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bodas de Oro — Silvia & Edmundo</title>
 
-    <!-- 1. ETIQUETAS PARA LA TARJETA DE VISTA PREVIA EN WHATSAPP -->
+    <!-- Meta Tags para WhatsApp -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Bodas de Oro — Silvia & Edmundo">
     <meta property="og:description" content="¡Celebramos 50 años de amor! Acompañanos en este día tan especial.">
-    <!-- Aquí irá el enlace público directo de la foto de portada -->
-    <meta property="og:image" content="https://tu-usuario.github.io/invitacion/foto_portada.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image" content="https://tu-usuario.github.io/tu-repositorio/foto.jpg">
 
-    <!-- Fuentes elegantes de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <!-- Enlace a tu archivo de estilos de diseño -->
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
-    <!-- PORTADA Y FOTO PRINCIPAL -->
-    <header class="portada">
-        <p class="subtitulo">NUESTRAS BODAS DE ORO</p>
-        <h1>Silvia & Edmundo</h1>
-        <p class="frase">"El amor verdadero no se cuenta en años, se cuenta en momentos y nosotros hemos vivido 50 años de momentos inolvidables"</p>
-        <div class="marco-foto1">
-            <img src="foto1.jpg" alt="Silvia y Edmundo">
+    <!-- PORTADA DE BIENVENIDA (SOBREPUESTA) -->
+    <div id="pantalla-bienvenida" class="portada-bienvenida">
+        <div class="contenido-bienvenida">
+            <p class="subtitulo">NUESTRAS BODAS DE ORO</p>
+            <h1>Silvia & Edmundo</h1>
+            <p class="frase">"50 años de amor y familia"</p>
+            <button id="btn-abrir" class="btn-abrir">Abrir Invitación 💌</button>
         </div>
-    </header>
+    </div>
 
-    <!-- CUENTA REGRESIVA -->
-    <section class="seccion contador-container">
-        <h2>Faltan poco para el gran día</h2>
-        <div id="reloj" class="reloj">
-            <div class="caja-tiempo"><span id="dias">00</span><small>Días</small></div>
-            <div class="caja-tiempo"><span id="horas">00</span><small>Horas</small></div>
-            <div class="caja-tiempo"><span id="minutos">00</span><small>Min</small></div>
-            <div class="caja-tiempo"><span id="segundos">00</span><small>Seg</small></div>
-        </div>
-    </section>
+    <!-- MÚSICA DE FONDO (Audio oculto) -->
+    <audio id="musica-fondo" loop>
+        <!-- Puedes cambiar 'cancion.mp3' por el archivo de música que subas a tu carpeta -->
+        <source src="cancion.mp3" type="audio/mp3">
+    </audio>
 
-    <!-- DETALLES DEL EVENTO -->
-    <section class="seccion detalles">
-        <h2>Detalles de la Celebración</h2>
-        <div class="tarjeta">
-            <p><strong>🗓 Fecha:</strong> Domingo, 22 de Noviembre de 2026</p>
-            <p><strong>⏰ Hora:</strong> 7:30 PM</p>
-            <p><strong>📍 Lugar:</strong> La Loma Club de Golf — Terraza Las Acacias</p>
-            <p><strong>👔 Código de vestir:</strong> Formal</p>
-            <p class="aviso">🚫 Recepción Solo Adultos</p>
-        </div>
-    </section>
+    <!-- CONTENIDO PRINCIPAL DE LA INVITACIÓN -->
+    <div id="invitacion-principal" class="oculto">
+        
+        <!-- ENCABEZADO Y FOTO PRINCIPAL -->
+        <header class="portada">
+            <p class="subtitulo">CELEBRAMOS 50 AÑOS</p>
+            <h1>Silvia & Edmundo</h1>
+            <p class="frase">"Su presencia será nuestro mejor regalo"</p>
+            <div class="marco-foto">
+                <img src="foto.jpg" alt="Silvia y Edmundo">
+            </div>
+        </header>
 
-    <!-- UBICACIÓN Y ACCESO -->
-    <section class="seccion ubicacion">
-        <h2>Ubicación del Evento</h2>
-        <div class="tarjeta">
-            <p><strong>📍 Lugar:</strong> La Loma Club de Golf — Terraza Las Acacias</p>
-            <p class="nota-acceso"><strong>🚗 Importante para tu llegada:</strong> El acceso para invitados es exclusivamente por la <strong>Caseta 2</strong> con el QR/Pase oficial.</p>
-        </div>
-        <!-- Botón a Google Maps -->
-        <a href="https://maps.app.goo.gl/FzeRzNBwptjhZZmm6" target="_blank" class="btn-ubicacion">
-            📍 Abrir en Google Maps
-        </a>
-    </section>
+        <!-- SECCIÓN DE MÁS FOTOS / GALERÍA -->
+        <section class="seccion galeria">
+            <h2>Nuestros Recuerdos</h2>
+            <div class="grid-fotos">
+                <img src="foto2.jpg" alt="Recuerdo 1">
+                <img src="foto3.jpg" alt="Recuerdo 2">
+            </div>
+        </section>
 
-    <!-- BOTÓN DE CONFIRMACIÓN A WHATSAPP -->
-    <section class="seccion rsvp">
-        <h2>Confirmación de Asistencia</h2>
-        <p>Por favor, confírmanos tu asistencia antes del 10 de Noviembre.</p>
-        <a id="btn-whatsapp" href="#" class="btn-rsvp">Confirmar por WhatsApp 💬</a>
-    </section>
+        <!-- CUENTA REGRESIVA -->
+        <section class="seccion contador-container">
+            <h2>Falta poco para el gran día</h2>
+            <div id="reloj" class="reloj">
+                <div class="caja-tiempo"><span id="dias">00</span><small>Días</small></div>
+                <div class="caja-tiempo"><span id="horas">00</span><small>Horas</small></div>
+                <div class="caja-tiempo"><span id="minutos">00</span><small>Min</small></div>
+                <div class="caja-tiempo"><span id="segundos">00</span><small>Seg</small></div>
+            </div>
+        </section>
 
-    <!-- Enlace al archivo de interactividad -->
+        <!-- DETALLES DEL EVENTO -->
+        <section class="seccion detalles">
+            <h2>Detalles de la Celebración</h2>
+            <div class="tarjeta">
+                <p><strong>🗓 Fecha:</strong> Domingo, 22 de Noviembre de 2026</p>
+                <p><strong>⏰ Hora:</strong> 7:30 PM</p>
+                <p><strong>📍 Lugar:</strong> La Loma Club de Golf — Terraza Las Acacias</p>
+                <p><strong>👔 Código de vestir:</strong> Formal</p>
+                <p class="nota-acceso"><strong>🚗 Importante:</strong> Acceso exclusivo por Caseta 2.</p>
+            </div>
+            <a href="https://maps.google.com/?q=La+Loma+Club+de+Golf+San+Luis+Potosi" target="_blank" class="btn-ubicacion">
+                📍 Abrir Ubicación en Google Maps
+            </a>
+        </section>
+
+        <!-- BOTÓN DE CONFIRMACIÓN A WHATSAPP -->
+        <section class="seccion rsvp">
+            <h2>Confirmación de Asistencia</h2>
+            <p>Por favor, confírmanos tu asistencia.</p>
+            <a id="btn-whatsapp" href="#" class="btn-rsvp">Confirmar por WhatsApp 💬</a>
+        </section>
+
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
