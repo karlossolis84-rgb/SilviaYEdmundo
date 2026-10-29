@@ -260,4 +260,266 @@ select {
     font-size: 0.85rem;
     color: #bbb;
     margin-bottom: 15px;
+}/* RESET GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0d1b2a; /* Azul marino profundo */
+    color: #e0e1dd;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* CLASE PARA OCULTAR */
+.oculto {
+    display: none !important;
+}
+
+/* CONTENEDOR PRINCIPAL DEL MÓVIL */
+.pantalla-inicial, .invitacion-contenido {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto; /* Centra horizontalmente */
+    background-color: #0f2338;
+    background-image: 
+        radial-gradient(circle at top left, rgba(46, 117, 89, 0.15), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(46, 117, 89, 0.15), transparent 40%);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    padding: 20px 15px;
+}
+
+/* PANTALLA INICIAL (BIENVENIDA) */
+.pantalla-inicial {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tarjeta-bienvenida {
+    background: rgba(13, 27, 42, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 15px;
+    padding: 40px 20px;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+/* TIPOGRAFÍA DORADA */
+.nombres-principales {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.nombres-secundarios {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.subtitulo-dorado {
+    font-family: 'Great Vibes', cursive;
+    color: #f3e5ab;
+    font-size: 2.2rem;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.conector {
+    color: #d4af37;
+    text-align: center;
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.invitados-selector {
+    margin: 30px 0;
+}
+
+.pases-texto {
+    display: block;
+    margin-bottom: 8px;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+select {
+    background: #1b263b;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+}
+
+/* SELLO DE LACRE */
+.sello-lacre {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #e6c667 0%, #b8860b 70%, #8b6508 100%);
+    border: 2px solid #fff3c4;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6), inset 0 0 10px rgba(0,0,0,0.4);
+    cursor: pointer;
+    margin: 20px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.sello-lacre:hover {
+    transform: scale(1.05);
+}
+
+.sello-lacre span {
+    font-family: 'Great Vibes', cursive;
+    color: #3d2600;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* BOTÓN DE AUDIO FLOTANTE */
+.boton-audio {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    background: #d4af37;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* SECCIONES Y TARJETAS */
+.tarjeta-seccion {
+    background: rgba(13, 27, 42, 0.75);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
+    padding: 25px 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* FOTOS DIFUMINADAS */
+.bloque-foto {
+    margin-bottom: 30px;
+}
+
+.contenedor-foto {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+.foto-difuminada {
+    width: 100%;
+    display: block;
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+/* FRASE Y RECEPTÁCULOS */
+.frase-texto {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.6rem;
+    color: #f3e5ab;
+    line-height: 1.6;
+}
+
+.fecha-destacada {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: #d4af37;
+    margin: 15px 0;
+}
+
+.fecha-destacada .mes {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.contador-grid {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.caja-tiempo span {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    color: #d4af37;
+}
+
+.caja-tiempo p {
+    font-size: 0.75rem;
+    color: #aaa;
+}
+
+/* BOTONES */
+.boton-dorado, .boton-whatsapp {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 15px;
+    cursor: pointer;
+    border: none;
+}
+
+.boton-dorado {
+    background: linear-gradient(45deg, #b8860b, #e6c667);
+    color: #0d1b2a;
+}
+
+.boton-whatsapp {
+    background: #25d366;
+    color: #fff;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.cursiva {
+    font-style: italic;
+    color: #ccc;
+}
+
+.separador-arriba {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.fecha-limite {
+    color: #d4af37;
+    margin-bottom: 10px;
+}
+
+.nota-confirmacion {
+    font-size: 0.85rem;
+    color: #bbb;
+    margin-bottom: 15px;
 }
