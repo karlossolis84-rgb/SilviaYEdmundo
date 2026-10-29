@@ -63,10 +63,21 @@ h1 {
     background: #FFF;
 }
 
-.marco-foto img, .marco-qr img {
+.marco-foto {
+    width: 280px;       /* Ancho máximo de la tarjeta en el celular */
+    height: 350px;      /* Altura fija para que todas se vean ordenadas */
+    margin: 0 auto;
+    border: 3px solid var(--dorado);
+    border-radius: 12px;
+    padding: 6px;
+    background: rgba(224, 169, 109, 0.1);
+    overflow: hidden;   /* Esto evita que la foto se salga del marco si es muy grande */
+}
+
+.marco-foto img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover;   /* Esto recubre el espacio de forma elegante sin deformar la cara de los novios */
     border-radius: 6px;
 }
 
