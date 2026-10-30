@@ -27,7 +27,45 @@
     <!-- Audio de Fondo -->
     <audio id="musicaFondo" src="cancion.mp3" loop></audio>
 
-    <!-- PANTALLA DE BIENVENIDA -->
+    <!-- PANEL DE ADMINISTRACIÓN / GENERADOR DE INVITACIONES PARA LOS NOVIOS -->
+    <div id="panelAdmin" class="panel-admin oculto">
+        <div class="tarjeta-admin">
+            <h2>Panel de Invitaciones</h2>
+            <p>Genera y envía pases personalizados</p>
+            
+            <div class="campo-admin">
+                <label>Nombre del invitado o familia:</label>
+                <input type="text" id="adminNombreInvitado" placeholder="Ej: Familia Gómez">
+            </div>
+
+            <div class="campo-admin">
+                <label>Pases asignados:</label>
+                <select id="adminPases">
+                    <option value="1">1 pase</option>
+                    <option value="2" selected>2 pases</option>
+                    <option value="3">3 pases</option>
+                    <option value="4">4 pases</option>
+                    <option value="5">5 pases</option>
+                    <option value="6">6 pases</option>
+                </select>
+            </div>
+
+            <div class="campo-admin">
+                <label>Teléfono de WhatsApp del invitado (opcional):</label>
+                <input type="text" id="adminTelInvitado" placeholder="Ej: 4441234567">
+            </div>
+
+            <button class="boton-dorado" onclick="generarYEnviarInvitacion()">
+                📲 Compartir por WhatsApp
+            </button>
+            
+            <button class="boton-link-secundario" onclick="ocultarAdminYVerInvitacion()">
+                👁️ Ver invitación como invitado
+            </button>
+        </div>
+    </div>
+
+    <!-- PANTALLA DE BIENVENIDA AL INVITADO -->
     <section class="pantalla-inicial" id="pantallaInicial">
         <div class="tarjeta-bienvenida">
             <h1 class="nombres-principales">EDMUNDO</h1>
@@ -35,14 +73,9 @@
             <h1 class="nombres-principales">SILVIA</h1>
             
             <div class="invitados-selector">
-                <span class="pases-texto">Invitación para:</span>
-                <select id="selectPases" onchange="actualizarPases()">
-                    <option value="1">1 persona</option>
-                    <option value="2" selected>2 personas</option>
-                    <option value="3">3 personas</option>
-                    <option value="4">4 personas</option>
-                    <option value="5">5 personas</option>
-                </select>
+                <span class="pases-texto" id="etiquetaSaludoInvitado">Especialmente invitados:</span>
+                <h3 class="nombre-invitado-pantalla" id="mostrarNombreInvitado">Familia e Invitados Especiales</h3>
+                <div class="badge-pases" id="badgePasesTexto">2 Pases reservados</div>
             </div>
 
             <!-- Botón Sello de Lacre -->
@@ -58,7 +91,6 @@
         <!-- Botón Flotante de Audio -->
         <button class="boton-audio" id="btnAudio" onclick="toggleMusica()">🎵</button>
 
-        <!-- ESPACIO INICIAL -->
         <div class="espaciador-grande"></div>
 
         <!-- FOTO 1: LA PINTURA -->
@@ -68,7 +100,7 @@
             </div>
         </section>
 
-        <!-- FRASE DE LOS 50 AÑOS (SIN RECUADRO) -->
+        <!-- FRASE DE LOS 50 AÑOS -->
         <section class="seccion-limpia">
             <p class="frase-texto">
                 "El amor verdadero no se cuenta en años, se cuenta en momentos y nosotros hemos vivido 50 años de momentos inolvidables."
@@ -82,7 +114,7 @@
             </div>
         </section>
 
-        <!-- CUENTA REGRESIVA Y FECHA (SIN RECUADRO Y CON PUNTOS) -->
+        <!-- CUENTA REGRESIVA Y FECHA -->
         <section class="seccion-limpia">
             <h2 class="nombres-secundarios">Edmundo & Silvia</h2>
             <h3 class="subtitulo-dorado">Nuestra Boda de Oro</h3>
@@ -93,7 +125,6 @@
                 <span>26</span>
             </div>
 
-            <!-- Contador en vivo con puntos separadores -->
             <div class="contador-grid">
                 <div class="caja-tiempo"><span id="dias">00</span><p>Días</p></div>
                 <div class="separador-punto">:</div>
@@ -112,7 +143,7 @@
             </div>
         </section>
 
-        <!-- RECEPCIÓN Y UBICACIÓN (SIN RECUADRO) -->
+        <!-- RECEPCIÓN Y UBICACIÓN -->
         <section class="seccion-limpia">
             <h3 class="subtitulo-dorado">Recepción</h3>
             <p class="hora-evento">🕒 5:30 PM</p>
@@ -121,7 +152,7 @@
             <a href="https://maps.app.goo.gl/oMdEYcy1VY2HKUhXA" target="_blank" class="boton-dorado">Ver Mapa</a>
         </section>
 
-        <!-- VESTIMENTA Y NOTA ESPECIAL (SIN RECUADROS) -->
+        <!-- VESTIMENTA Y NOTA ESPECIAL -->
         <section class="seccion-limpia">
             <div class="bloque-texto-libre">
                 <h3 class="subtitulo-dorado">Código de Vestimenta</h3>
@@ -134,11 +165,11 @@
             </div>
         </section>
 
-        <!-- RSVP Y NOTA DE INE (CAJA DE CONFIRMACIÓN) -->
+        <!-- RSVP Y NOTA DE INE -->
         <section class="seccion-rsvp">
             <div class="rsvp-box">
                 <p class="fecha-limite">Favor de confirmar asistencia antes del:<br><strong>15 de Noviembre</strong></p>
-                <p class="nota-confirmacion">Favor de indicar mensaje de confirmación y nombre completo de los invitados (<span id="cantidadPasesTexto">2 personas</span>).</p>
+                <p class="nota-confirmacion">Favor de indicar mensaje de confirmación y nombre completo de los invitados (<span id="cantidadPasesTexto">2 pases</span>).</p>
                 <p class="nota-ine"><strong>* Indispensable presentar INE para el acceso al club *</strong></p>
                 <button class="boton-whatsapp" onclick="enviarWhatsApp()">
                     Confirmar por WhatsApp

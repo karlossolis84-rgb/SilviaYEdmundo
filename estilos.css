@@ -331,3 +331,94 @@ select {
     margin: 12px 0 18px 0;
     letter-spacing: 0.5px;
 }
+
+/* ESTILOS DEL PANEL DE ADMINISTRACIÓN */
+.panel-admin {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(5, 14, 22, 0.95);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.tarjeta-admin {
+    background: #0d1b2a;
+    border: 1px solid #d4af37;
+    border-radius: 15px;
+    padding: 30px 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.tarjeta-admin h2 {
+    color: #d4af37;
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.tarjeta-admin p {
+    color: #aaa;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+}
+
+.campo-admin {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.campo-admin label {
+    display: block;
+    color: #f3e5ab;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+}
+
+.campo-admin input, .campo-admin select {
+    width: 100%;
+    background: #1b263b;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.boton-link-secundario {
+    background: transparent;
+    border: none;
+    color: #aaa;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    text-decoration: underline;
+}
+
+/* NOMBRE Y BADGE DE PASES DEL INVITADO */
+.nombre-invitado-pantalla {
+    font-family: 'Cinzel', serif;
+    color: #fff;
+    font-size: 1.3rem;
+    margin: 8px 0;
+}
+
+.badge-pases {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid #d4af37;
+    color: #f3e5ab;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
