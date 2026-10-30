@@ -323,3 +323,11 @@ select {
     color: #bbb;
     margin-bottom: 20px;
 }
+
+/* ESTILO PARA LA NOTA DEL INE */
+.nota-ine {
+    font-size: 0.9rem;
+    color: #f3e5ab;
+    margin: 12px 0 18px 0;
+    letter-spacing: 0.5px;
+}
