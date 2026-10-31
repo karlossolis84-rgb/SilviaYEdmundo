@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     actualizarTextosPases();
     
-    // Apagar música por completo al cargar la portada
+    // Apagar música por completo al cargar la página
     const musica = document.getElementById('musicaFondo');
     if (musica) {
         musica.pause();
@@ -37,13 +37,22 @@ function actualizarTextosPases() {
     if (textoPasesElemento) textoPasesElemento.textContent = numeroPases + (numeroPases === 1 ? ' pase' : ' pases');
 }
 
-// 1. Al presionar el sello de la mariposa: se abre el sobre y aparece la tarjeta con nombres y pases
-function abrirSobre() {
+// 1. Al presionar el sello E&S: Se abre el sobre y COMIENZA A SONAR LA MÚSICA de inmediato
+function abrirSobreConMusica() {
     const sup = document.getElementById('sobreSuperior');
     const izq = document.getElementById('sobreIzquierda');
     const der = document.getElementById('sobreDerecha');
     const sello = document.getElementById('contenedorSello');
     const tarjetaInterior = document.getElementById('tarjetaInterior');
+    const musica = document.getElementById('musicaFondo');
+
+    // Reproducir la canción al presionar el sello
+    if (musica) {
+        musica.currentTime = 0;
+        musica.play().catch(error => {
+            console.log("Reproducción automática bloqueada por el navegador:", error);
+        });
+    }
 
     if (sup && izq && der && sello) {
         sup.classList.add('abrir-arriba');
@@ -58,18 +67,10 @@ function abrirSobre() {
     }, 600);
 }
 
-// 2. Al presionar el botón "Ver Invitación": arranca la música y muestra la invitación completa
+// 2. Al presionar el botón "Ver Invitación": Oculta la portada y muestra el contenido completo
 function entrarInvitacionPrincipal() {
     const pantallaInicial = document.getElementById('pantallaInicial');
     const contenidoPrincipal = document.getElementById('contenidoPrincipal');
-    const musica = document.getElementById('musicaFondo');
-
-    if (musica) {
-        musica.currentTime = 0;
-        musica.play().catch(error => {
-            console.log("Reproducción bloqueada por el navegador:", error);
-        });
-    }
 
     pantallaInicial.classList.add('oculto');
     contenidoPrincipal.classList.remove('oculto');

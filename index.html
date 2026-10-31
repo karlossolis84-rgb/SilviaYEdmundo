@@ -65,17 +65,17 @@
         </div>
     </div>
 
-    <!-- PANTALLA INICIAL: ESTILO SOBRE DE CARTA CON MARIPOSA -->
+    <!-- PANTALLA INICIAL: ESTILO SOBRE CON SELLO DE INICIALES E&S -->
     <section class="pantalla-inicial" id="pantallaInicial">
         <!-- Solapas del Sobre que se abren -->
         <div class="solapa sobre-superior" id="sobreSuperior"></div>
         <div class="solapa sobre-izquierda" id="sobreIzquierda"></div>
         <div class="solapa sobre-derecha" id="sobreDerecha"></div>
         
-        <!-- Sello de Cera con Mariposa en el Centro -->
-        <div class="sello-mariposa-container" id="contenedorSello" onclick="abrirSobre()">
+        <!-- Sello de Cera con Iniciales E&S en el Centro (Inicia la música y abre el sobre) -->
+        <div class="sello-mariposa-container" id="contenedorSello" onclick="abrirSobreConMusica()">
             <div class="sello-cera">
-                <span class="icono-mariposa">🦋</span>
+                <span class="iniciales-sello">E & S</span>
             </div>
         </div>
 
@@ -94,7 +94,7 @@
                 <div class="badge-pases" id="badgePasesTexto">2 Pases reservados</div>
             </div>
 
-            <!-- Segundo botón para ver la invitación con música -->
+            <!-- Botón para ver la invitación principal -->
             <button class="boton-abrir-sobre" onclick="entrarInvitacionPrincipal()">
                 <span>Ver Invitación</span>
             </button>

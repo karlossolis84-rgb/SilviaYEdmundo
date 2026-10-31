@@ -90,7 +90,7 @@ html, body {
     transform: translateX(100%);
 }
 
-/* Sello central con mariposa */
+/* Sello central con las iniciales E & S */
 .sello-mariposa-container {
     position: absolute;
     z-index: 20;
@@ -106,8 +106,8 @@ html, body {
 }
 
 .sello-cera {
-    width: 90px;
-    height: 90px;
+    width: 95px;
+    height: 95px;
     background: linear-gradient(135deg, #d4af37, #996515);
     border-radius: 50%;
     display: flex;
@@ -117,8 +117,13 @@ html, body {
     border: 3px solid #f3e5ab;
 }
 
-.icono-mariposa {
-    font-size: 2.2rem;
+.iniciales-sello {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #0d1b2a;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.3);
 }
 
 /* Tarjeta interior que aparece al abrir el sobre */
