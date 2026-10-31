@@ -142,18 +142,13 @@ html, body {
     to { opacity: 1; transform: scale(1); }
 }
 
-.icono-anillos {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
 .sub-bodas-oro {
     font-family: 'Cinzel', serif;
     color: #e6c667;
-    font-size: 1rem;
+    font-size: 1.1rem;
     letter-spacing: 3px;
     text-transform: uppercase;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 /* ESTILO DE LETRA IDÉNTICO AL EJEMPLO (ORO LÍQUIDO CON DESTELLOS) */
