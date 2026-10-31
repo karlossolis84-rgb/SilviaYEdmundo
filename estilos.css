@@ -430,3 +430,49 @@ select {
     margin-top: 25px; /* Espacio debajo de la nota especial */
     font-size: 2rem;
 }
+
+.marco-floral-portada {
+    background: rgba(13, 27, 42, 0.9);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 20px;
+    padding: 40px 20px;
+    width: 100%;
+    max-width: 390px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    transition: transform 0.7s ease, opacity 0.7s ease;
+}
+
+/* Animación de apertura estilo pop-up / florecimiento */
+.efecto-abrir {
+    transform: scale(1.15);
+    opacity: 0;
+}
+
+.adorno-floral {
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+    margin: 10px 0;
+    opacity: 0.9;
+}
+
+.boton-abrir-floral {
+    display: inline-block;
+    background: linear-gradient(45deg, #b8860b, #e6c667);
+    color: #0d1b2a;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    margin-top: 25px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    transition: transform 0.2s;
+}
+
+.boton-abrir-floral:hover {
+    transform: scale(1.05);
+}

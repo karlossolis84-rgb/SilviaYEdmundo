@@ -65,23 +65,27 @@
         </div>
     </div>
 
-    <!-- PANTALLA DE BIENVENIDA AL INVITADO -->
+    <!-- PANTALLA DE BIENVENIDA CON EFECTO FLORECIENDO / ABRIR -->
     <section class="pantalla-inicial" id="pantallaInicial">
-        <div class="tarjeta-bienvenida">
+        <div class="marco-floral-portada" id="marcoPortada">
+            <div class="adorno-floral superior">🌿 🌸 🍃</div>
+            
             <h1 class="nombres-principales">EDMUNDO</h1>
-            <div class="conector">✨ y ✨</div>
+            <div class="conector">✨ Bodas de Oro ✨</div>
             <h1 class="nombres-principales">SILVIA</h1>
             
             <div class="invitados-selector">
-                <span class="pases-texto" id="etiquetaSaludoInvitado">Especialmente invitados:</span>
+                <span class="pases-texto">Especialmente invitados:</span>
                 <h3 class="nombre-invitado-pantalla" id="mostrarNombreInvitado">Familia e Invitados Especiales</h3>
                 <div class="badge-pases" id="badgePasesTexto">2 Pases reservados</div>
             </div>
 
-            <!-- Botón Sello de Lacre -->
-            <button class="sello-lacre" onclick="abrirInvitacion()">
-                <span>Abrir</span>
+            <!-- Botón para abrir la invitación -->
+            <button class="boton-abrir-floral" onclick="abrirInvitacion()">
+                <span>Abrir Invitación</span>
             </button>
+
+            <div class="adorno-floral inferior">🍃 🌸 🌿</div>
         </div>
     </section>
 
@@ -152,7 +156,7 @@
             <a href="https://maps.app.goo.gl/oMdEYcy1VY2HKUhXA" target="_blank" class="boton-dorado">Ver Mapa</a>
         </section>
 
-        <!-- VESTIMENTA Y NOTA ESPECIAL CON EL NUEVO DETALLE -->
+        <!-- VESTIMENTA Y NOTA ESPECIAL -->
         <section class="seccion-limpia">
             <div class="bloque-texto-libre">
                 <h3 class="subtitulo-dorado">Código de Vestimenta</h3>
@@ -162,7 +166,6 @@
             <div class="bloque-texto-libre separador-botanico">
                 <h3 class="subtitulo-dorado">Nota Especial</h3>
                 <p class="cursiva">Amamos a sus pequeños, pero este evento será solo para adultos...</p>
-                <!-- Nueva nota con la misma tipografía elegante -->
                 <p class="subtitulo-dorado frase-regalo">Su presencia será un gran regalo.</p>
             </div>
         </section>

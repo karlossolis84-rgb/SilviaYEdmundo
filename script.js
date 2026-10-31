@@ -6,18 +6,15 @@ let nombreInvitado = "Familia e Invitados Especiales";
 window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     
-    // Si la URL contiene ?admin=true, mostramos el panel de administración para Silvia y Edmundo
     if (urlParams.get('admin') === 'true') {
         document.getElementById('panelAdmin').classList.remove('oculto');
     }
 
-    // Si la URL trae un nombre personalizado ?invitado=Nombre
     if (urlParams.has('invitado')) {
         nombreInvitado = urlParams.get('invitado');
         document.getElementById('mostrarNombreInvitado').textContent = nombreInvitado;
     }
 
-    // Si la URL trae pases ?pases=3
     if (urlParams.has('pases')) {
         numeroPases = parseInt(urlParams.get('pases'), 10) || 2;
     }
@@ -25,7 +22,6 @@ window.addEventListener('DOMContentLoaded', () => {
     actualizarTextosPases();
 });
 
-// Función para actualizar los textos de los pases en la interfaz
 function actualizarTextosPases() {
     const badgePases = document.getElementById('badgePasesTexto');
     const textoPasesElemento = document.getElementById('cantidadPasesTexto');
@@ -36,25 +32,31 @@ function actualizarTextosPases() {
     if (textoPasesElemento) textoPasesElemento.textContent = numeroPases + (numeroPases === 1 ? ' pase' : ' pases');
 }
 
-// Función que abre la invitación, oculta la portada y reproduce la música
+// Función que ejecuta la animación de "florecimiento/apertura" y revela la invitación
 function abrirInvitacion() {
+    const marcoPortada = document.getElementById('marcoPortada');
     const pantallaInicial = document.getElementById('pantallaInicial');
     const contenidoPrincipal = document.getElementById('contenidoPrincipal');
     const musica = document.getElementById('musicaFondo');
 
-    pantallaInicial.classList.add('oculto');
-    contenidoPrincipal.classList.remove('oculto');
+    // Aplicar clase de animación de apertura (se despliega y difumina)
+    marcoPortada.classList.add('efecto-abrir');
 
+    // Reproducir música
     if (musica) {
         musica.play().catch(error => {
             console.log("Audio requiere interacción previa:", error);
         });
     }
 
-    iniciarContador();
+    // Esperar a que termine la animación (0.8 segundos) para cambiar de pantalla
+    setTimeout(() => {
+        pantallaInicial.classList.add('oculto');
+        contenidoPrincipal.classList.remove('oculto');
+        iniciarContador();
+    }, 700);
 }
 
-// Control de audio
 function toggleMusica() {
     const musica = document.getElementById('musicaFondo');
     const btnAudio = document.getElementById('btnAudio');
@@ -68,7 +70,6 @@ function toggleMusica() {
     }
 }
 
-// Contador regresivo a Nov 22, 2026 5:30 PM
 function iniciarContador() {
     const fechaEvento = new Date("Nov 22, 2026 17:30:00").getTime();
 
@@ -97,7 +98,6 @@ function iniciarContador() {
     }, 1000);
 }
 
-// Confirmación final del invitado hacia WhatsApp
 function enviarWhatsApp() {
     const telefono = "524442152155";
     const texto = `¡Hola Silvia y Edmundo! Soy ${nombreInvitado}. Confirmo nuestra asistencia para ${numeroPases} ${numeroPases === 1 ? 'persona' : 'personas'} a sus Bodas de Oro. ¡Allá nos vemos! 💍✨`;
@@ -105,27 +105,21 @@ function enviarWhatsApp() {
     window.open(urlWhatsApp, '_blank');
 }
 
-// --- FUNCIONES DEL PANEL DE ADMINISTRACIÓN ---
-
 function generarYEnviarInvitacion() {
     const nombreInput = document.getElementById('adminNombreInvitado').value.trim() || "Invitado Especial";
     const pasesSelect = document.getElementById('adminPases').value;
     const telInput = document.getElementById('adminTelInvitado').value.trim();
 
-    // Crear el enlace personalizado
     const urlBase = "https://karlossolis84-rgb.github.io/SilviaYEdmundo/";
     const enlacePersonalizado = `${urlBase}?invitado=${encodeURIComponent(nombreInput)}&pases=${pasesSelect}`;
 
-    // Mensaje para enviar al invitado por WhatsApp
     const mensajeWhatsApp = `✨ ¡Hola ${nombreInput}! ✨\n\nSilvia y Edmundo tienen el honor de invitarte a celebrar sus Bodas de Oro 💍 (50 años de matrimonio).\n\nHemos reservado ${pasesSelect} ${pasesSelect === '1' ? 'pase' : 'pases'} especialmente para ti.\n\nPuedes ver todos los detalles de la invitación y confirmar tu asistencia en el siguiente enlace:\n${enlacePersonalizado}`;
 
     let urlShare = "";
     if (telInput !== "") {
-        // Enviar directo al número del invitado
         const telLimpio = telInput.replace(/\D/g, '');
         urlShare = `https://wa.me/${telLimpio}?text=${encodeURIComponent(mensajeWhatsApp)}`;
     } else {
-        // Abrir WhatsApp para seleccionar contacto
         urlShare = `https://wa.me/?text=${encodeURIComponent(mensajeWhatsApp)}`;
     }
 
