@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     actualizarTextosPases();
     
-    // Apagar música por completo al cargar la página
+    // Música pausada desde el inicio
     const musica = document.getElementById('musicaFondo');
     if (musica) {
         musica.pause();
@@ -37,7 +37,7 @@ function actualizarTextosPases() {
     if (textoPasesElemento) textoPasesElemento.textContent = numeroPases + (numeroPases === 1 ? ' pase' : ' pases');
 }
 
-// 1. Al presionar el sello E&S: Se abre el sobre y COMIENZA A SONAR LA MÚSICA de inmediato
+// AL TOCAR LAS INICIALES E&S: Se abre el sobre Y COMIENZA LA MÚSICA de inmediato
 function abrirSobreConMusica() {
     const sup = document.getElementById('sobreSuperior');
     const izq = document.getElementById('sobreIzquierda');
@@ -46,11 +46,11 @@ function abrirSobreConMusica() {
     const tarjetaInterior = document.getElementById('tarjetaInterior');
     const musica = document.getElementById('musicaFondo');
 
-    // Reproducir la canción al presionar el sello
+    // Reproducir la música desde el inicio al tocar las iniciales E&S
     if (musica) {
         musica.currentTime = 0;
         musica.play().catch(error => {
-            console.log("Reproducción automática bloqueada por el navegador:", error);
+            console.log("Audio prevenido por el navegador:", error);
         });
     }
 
@@ -67,7 +67,7 @@ function abrirSobreConMusica() {
     }, 600);
 }
 
-// 2. Al presionar el botón "Ver Invitación": Oculta la portada y muestra el contenido completo
+// Al dar clic en "Ver Invitación"
 function entrarInvitacionPrincipal() {
     const pantallaInicial = document.getElementById('pantallaInicial');
     const contenidoPrincipal = document.getElementById('contenidoPrincipal');
@@ -77,7 +77,6 @@ function entrarInvitacionPrincipal() {
     iniciarContador();
 }
 
-// Control de audio flotante
 function toggleMusica() {
     const musica = document.getElementById('musicaFondo');
     const btnAudio = document.getElementById('btnAudio');

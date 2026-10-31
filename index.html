@@ -65,28 +65,29 @@
         </div>
     </div>
 
-    <!-- PANTALLA INICIAL: ESTILO SOBRE CON SELLO DE INICIALES E&S -->
+    <!-- PANTALLA INICIAL: SOBRE CON SELLO DE INICIALES E&S EN ORO BRILLANTE -->
     <section class="pantalla-inicial" id="pantallaInicial">
-        <!-- Solapas del Sobre que se abren -->
+        <!-- Solapas del Sobre -->
         <div class="solapa sobre-superior" id="sobreSuperior"></div>
         <div class="solapa sobre-izquierda" id="sobreIzquierda"></div>
         <div class="solapa sobre-derecha" id="sobreDerecha"></div>
         
-        <!-- Sello de Cera con Iniciales E&S en el Centro (Inicia la música y abre el sobre) -->
+        <!-- Sello de Iniciales E&S (Al tocarlo suena la música y se abre el sobre) -->
         <div class="sello-mariposa-container" id="contenedorSello" onclick="abrirSobreConMusica()">
             <div class="sello-cera">
-                <span class="iniciales-sello">E & S</span>
+                <span class="iniciales-sello-brillante">E & S</span>
             </div>
         </div>
 
-        <!-- Tarjeta Interior que aparece al abrir el sobre -->
+        <!-- Tarjeta Interior -->
         <div class="tarjeta-interior-sobre oculto" id="tarjetaInterior">
-            <div class="adorno-superior-elegante">✨ 🌿 ✨</div>
-            <h1 class="nombres-portada-cursiva">Edmundo</h1>
-            <div class="conector-portada">&</div>
-            <h1 class="nombres-portada-cursiva">Silvia</h1>
+            <div class="icono-anillos">💍💍</div>
             
-            <div class="sub-bodas-oro">Bodas de Oro</div>
+            <div class="sub-bodas-oro">Nuestras Bodas de Oro</div>
+
+            <h1 class="nombres-brillantes-oro">Edmundo</h1>
+            <div class="conector-portada">y</div>
+            <h1 class="nombres-brillantes-oro">Silvia</h1>
 
             <div class="invitados-selector">
                 <span class="pases-texto">Especialmente invitados:</span>
@@ -94,7 +95,7 @@
                 <div class="badge-pases" id="badgePasesTexto">2 Pases reservados</div>
             </div>
 
-            <!-- Botón para ver la invitación principal -->
+            <!-- Botón para continuar a la invitación completa -->
             <button class="boton-abrir-sobre" onclick="entrarInvitacionPrincipal()">
                 <span>Ver Invitación</span>
             </button>
@@ -109,7 +110,7 @@
 
         <div class="espaciador-grande"></div>
 
-        <!-- FOTO 1: LA PINTURA -->
+        <!-- FOTO 1: LA PINTURA (PRIMER ELEMENTO AL ABRIR) -->
         <section class="bloque-foto">
             <div class="contenedor-foto">
                 <img src="foto1.jpg" alt="Pintura Silvia y Edmundo" class="foto-difuminada">

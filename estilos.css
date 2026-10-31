@@ -79,7 +79,7 @@ html, body {
     transform-origin: right;
 }
 
-/* Animaciones de apertura del sobre */
+/* Animaciones de apertura */
 .abrir-arriba {
     transform: translateY(-100%);
 }
@@ -90,7 +90,7 @@ html, body {
     transform: translateX(100%);
 }
 
-/* Sello central con las iniciales E & S */
+/* Sello central con Iniciales E&S */
 .sello-mariposa-container {
     position: absolute;
     z-index: 20;
@@ -108,25 +108,26 @@ html, body {
 .sello-cera {
     width: 95px;
     height: 95px;
-    background: linear-gradient(135deg, #d4af37, #996515);
+    background: linear-gradient(135deg, #d4af37, #7a520e);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.6), inset 0 2px 5px rgba(255,255,255,0.4);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.7), inset 0 2px 5px rgba(255,255,255,0.4);
     border: 3px solid #f3e5ab;
 }
 
-.iniciales-sello {
+/* Iniciales en el Sello */
+.iniciales-sello-brillante {
     font-family: 'Cinzel', serif;
     font-size: 1.6rem;
     font-weight: bold;
     color: #0d1b2a;
     letter-spacing: 1px;
-    text-shadow: 0 1px 2px rgba(255,255,255,0.3);
+    text-shadow: 0 1px 2px rgba(255,255,255,0.4);
 }
 
-/* Tarjeta interior que aparece al abrir el sobre */
+/* Tarjeta interior */
 .tarjeta-interior-sobre {
     position: relative;
     z-index: 15;
@@ -141,37 +142,48 @@ html, body {
     to { opacity: 1; transform: scale(1); }
 }
 
-/* TIPOGRAFÍAS DE PORTADA */
-.nombres-portada-cursiva {
-    font-family: 'Great Vibes', cursive;
-    color: #f3e5ab;
-    font-size: 3.5rem;
-    line-height: 1.1;
-    text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
-}
-
-.conector-portada {
-    font-family: 'Cinzel', serif;
-    color: #d4af37;
-    font-size: 1.5rem;
-    margin: 5px 0;
+.icono-anillos {
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
 .sub-bodas-oro {
     font-family: 'Cinzel', serif;
-    color: #d4af37;
-    font-size: 1.1rem;
-    letter-spacing: 4px;
+    color: #e6c667;
+    font-size: 1rem;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-.adorno-superior-elegante {
-    font-size: 1.2rem;
-    color: #d4af37;
-    margin-bottom: 15px;
-    letter-spacing: 8px;
+/* ESTILO DE LETRA IDÉNTICO AL EJEMPLO (ORO LÍQUIDO CON DESTELLOS) */
+.nombres-brillantes-oro {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4.5rem;
+    line-height: 1.15;
+    margin: 5px 0;
+    font-weight: 400;
+    background: linear-gradient(135deg, #b8860b 0%, #ffeaa5 25%, #d4af37 50%, #fff6cc 75%, #aa771c 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: destelloOro 4s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+    position: relative;
+}
+
+@keyframes destelloOro {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.conector-portada {
+    font-family: 'Great Vibes', cursive;
+    color: #e6c667;
+    font-size: 1.8rem;
+    margin: -10px 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 .boton-abrir-sobre {
@@ -265,7 +277,6 @@ html, body {
     height: 20px;
 }
 
-/* Espaciados aumentados al doble */
 .seccion-limpia {
     text-align: center;
     margin-bottom: 140px;
