@@ -32,29 +32,37 @@ function actualizarTextosPases() {
     if (textoPasesElemento) textoPasesElemento.textContent = numeroPases + (numeroPases === 1 ? ' pase' : ' pases');
 }
 
-// Función que ejecuta la animación de "florecimiento/apertura" y revela la invitación
-function abrirInvitacion() {
-    const marcoPortada = document.getElementById('marcoPortada');
+function abrirInvitacionSobre() {
+    const solapaIzq = document.getElementById('solapaIzquierda');
+    const solapaDer = document.getElementById('solapaDerecha');
+    const contenidoPortada = document.getElementById('contenidoPortada');
     const pantallaInicial = document.getElementById('pantallaInicial');
     const contenidoPrincipal = document.getElementById('contenidoPrincipal');
     const musica = document.getElementById('musicaFondo');
 
-    // Aplicar clase de animación de apertura (se despliega y difumina)
-    marcoPortada.classList.add('efecto-abrir');
+    // Iniciar animación de apertura hacia los lados
+    if (solapaIzq && solapaDer) {
+        solapaIzq.classList.add('abrir-izq');
+        solapaDer.classList.add('abrir-der');
+    }
+    
+    if (contenidoPortada) {
+        contenidoPortada.classList.add('desvanecer-centro');
+    }
 
-    // Reproducir música
+    // Reproducir música de fondo
     if (musica) {
         musica.play().catch(error => {
-            console.log("Audio requiere interacción previa:", error);
+            console.log("El navegador requirió interacción previa para audio:", error);
         });
     }
 
-    // Esperar a que termine la animación (0.8 segundos) para cambiar de pantalla
+    // Esperar a que se abran las puertas para mostrar el contenido
     setTimeout(() => {
         pantallaInicial.classList.add('oculto');
         contenidoPrincipal.classList.remove('oculto');
         iniciarContador();
-    }, 700);
+    }, 900);
 }
 
 function toggleMusica() {

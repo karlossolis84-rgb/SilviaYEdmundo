@@ -476,3 +476,74 @@ select {
 .boton-abrir-floral:hover {
     transform: scale(1.05);
 }
+
+/* EFECTO SOBRE / APERTURA FLORAL */
+.pantalla-inicial {
+    position: relative;
+    overflow: hidden;
+}
+
+.solapa-invitacion {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #0d1b2a;
+    background-image: radial-gradient(circle at center, rgba(212, 175, 55, 0.15), transparent);
+    border-color: rgba(212, 175, 55, 0.3);
+    border-style: solid;
+    z-index: 10;
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.solapa-izquierda {
+    left: 0;
+    border-right-width: 1px;
+}
+
+.solapa-derecha {
+    right: 0;
+    border-left-width: 1px;
+}
+
+.decoracion-flores {
+    font-size: 3rem;
+    opacity: 0.8;
+}
+
+.contenido-portada-sobre {
+    position: relative;
+    z-index: 20;
+    text-align: center;
+    transition: opacity 0.5s ease;
+}
+
+/* Clases que activan la animación al hacer clic */
+.abrir-izq {
+    transform: translateX(-100%);
+}
+
+.abrir-der {
+    transform: translateX(100%);
+}
+
+.desvanecer-centro {
+    opacity: 0;
+}
+
+.boton-abrir-sobre {
+    background: linear-gradient(45deg, #b8860b, #e6c667);
+    color: #0d1b2a;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 14px 32px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    margin-top: 25px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
+}

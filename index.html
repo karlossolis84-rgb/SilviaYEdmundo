@@ -65,11 +65,20 @@
         </div>
     </div>
 
-    <!-- PANTALLA DE BIENVENIDA CON EFECTO FLORECIENDO / ABRIR -->
+    <!-- PANTALLA DE BIENVENIDA CON PUERTAS/SOLAPAS DE APERTURA -->
     <section class="pantalla-inicial" id="pantallaInicial">
-        <div class="marco-floral-portada" id="marcoPortada">
-            <div class="adorno-floral superior">🌿 🌸 🍃</div>
-            
+        <!-- Solapa Izquierda -->
+        <div class="solapa-invitacion solapa-izquierda" id="solapaIzquierda">
+            <div class="decoracion-flores">🌿🌸</div>
+        </div>
+
+        <!-- Solapa Derecha -->
+        <div class="solapa-invitacion solapa-derecha" id="solapaDerecha">
+            <div class="decoracion-flores">🌸🌿</div>
+        </div>
+
+        <!-- Contenido Central / Sello -->
+        <div class="contenido-portada-sobre" id="contenidoPortada">
             <h1 class="nombres-principales">EDMUNDO</h1>
             <div class="conector">✨ Bodas de Oro ✨</div>
             <h1 class="nombres-principales">SILVIA</h1>
@@ -80,12 +89,10 @@
                 <div class="badge-pases" id="badgePasesTexto">2 Pases reservados</div>
             </div>
 
-            <!-- Botón para abrir la invitación -->
-            <button class="boton-abrir-floral" onclick="abrirInvitacion()">
+            <!-- Botón de apertura -->
+            <button class="boton-abrir-sobre" onclick="abrirInvitacionSobre()">
                 <span>Abrir Invitación</span>
             </button>
-
-            <div class="adorno-floral inferior">🍃 🌸 🌿</div>
         </div>
     </section>
 
