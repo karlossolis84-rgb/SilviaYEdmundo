@@ -18,7 +18,7 @@ html, body {
     display: none !important;
 }
 
-/* CONTENEDOR PRINCIPAL CON AZUL MARINO MATIZADO */
+/* CONTENEDOR PRINCIPAL CON ESPACIOS AL DOBLE */
 .invitacion-contenido {
     width: 100%;
     max-width: 450px;
@@ -29,7 +29,114 @@ html, body {
     padding: 20px 25px;
 }
 
-/* NOMBRES DE PORTADA EN CURSIVA DORADA */
+/* PANTALLA INICIAL ESTILO SOBRE DE CARTA */
+.pantalla-inicial {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: #091522;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Solapas diagonales del sobre */
+.solapa {
+    position: absolute;
+    background: linear-gradient(135deg, #0d1b2a 0%, #061018 100%);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    z-index: 10;
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.sobre-superior {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top;
+}
+
+.sobre-izquierda {
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    clip-path: polygon(0 0, 0 100%, 100% 50%);
+    transform-origin: left;
+}
+
+.sobre-derecha {
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    clip-path: polygon(100% 0, 100% 100%, 0 50%);
+    transform-origin: right;
+}
+
+/* Animaciones de apertura del sobre */
+.abrir-arriba {
+    transform: translateY(-100%);
+}
+.abrir-izq {
+    transform: translateX(-100%);
+}
+.abrir-der {
+    transform: translateX(100%);
+}
+
+/* Sello central con mariposa */
+.sello-mariposa-container {
+    position: absolute;
+    z-index: 20;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.sello-mariposa-container:hover {
+    transform: scale(1.08);
+}
+
+.sello-cera {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #d4af37, #996515);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6), inset 0 2px 5px rgba(255,255,255,0.4);
+    border: 3px solid #f3e5ab;
+}
+
+.icono-mariposa {
+    font-size: 2.2rem;
+}
+
+/* Tarjeta interior que aparece al abrir el sobre */
+.tarjeta-interior-sobre {
+    position: relative;
+    z-index: 15;
+    text-align: center;
+    padding: 30px 20px;
+    width: 100%;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* TIPOGRAFÍAS DE PORTADA */
 .nombres-portada-cursiva {
     font-family: 'Great Vibes', cursive;
     color: #f3e5ab;
@@ -62,62 +169,6 @@ html, body {
     letter-spacing: 8px;
 }
 
-/* PANTALLA INICIAL Y SOLAPAS CON AZUL MARINO MATIZADO LIMPIO */
-.pantalla-inicial {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    max-width: 450px;
-    min-height: 100vh;
-    margin: 0 auto;
-    background: linear-gradient(to bottom, #0d1b2a, #07131d);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.solapa-invitacion {
-    position: absolute;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(135deg, #0d1b2a 0%, #061018 100%);
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    z-index: 10;
-    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.solapa-izquierda {
-    left: 0;
-    border-right: 1px solid rgba(212, 175, 55, 0.3);
-}
-
-.solapa-derecha {
-    right: 0;
-    border-left: 1px solid rgba(212, 175, 55, 0.3);
-}
-
-.contenido-portada-sobre {
-    position: relative;
-    z-index: 20;
-    text-align: center;
-    padding: 20px;
-    width: 100%;
-    transition: opacity 0.5s ease;
-}
-
-.abrir-izq {
-    transform: translateX(-100%);
-}
-
-.abrir-der {
-    transform: translateX(100%);
-}
-
-.desvanecer-centro {
-    opacity: 0;
-}
-
 .boton-abrir-sobre {
     background: linear-gradient(45deg, #b8860b, #e6c667);
     color: #0d1b2a;
@@ -137,7 +188,7 @@ html, body {
     transform: scale(1.05);
 }
 
-/* RESTO DE ESTILOS GENERALES */
+/* ESPACIADO AL DOBLE ENTRE FOTOS Y TEXTOS */
 .nombres-principales {
     font-family: 'Cinzel', serif;
     color: #d4af37;
@@ -158,7 +209,7 @@ html, body {
     color: #f3e5ab;
     font-size: 2.4rem;
     text-align: center;
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 .invitados-selector {
@@ -206,27 +257,28 @@ html, body {
 }
 
 .espaciador-grande {
-    height: 10px;
+    height: 20px;
 }
 
+/* Espaciados aumentados al doble */
 .seccion-limpia {
     text-align: center;
-    margin-bottom: 80px;
-    padding: 10px 5px;
+    margin-bottom: 140px;
+    padding: 20px 5px;
 }
 
 .bloque-texto-libre {
-    margin-bottom: 35px;
+    margin-bottom: 70px;
 }
 
 .separador-botanico {
-    margin-top: 50px;
-    padding-top: 30px;
+    margin-top: 80px;
+    padding-top: 50px;
     border-top: 1px dashed rgba(212, 175, 55, 0.25);
 }
 
 .bloque-foto {
-    margin-bottom: 80px;
+    margin-bottom: 140px;
 }
 
 .contenedor-foto {
@@ -246,9 +298,9 @@ html, body {
 
 .frase-texto {
     font-family: 'Great Vibes', cursive;
-    font-size: 1.9rem;
+    font-size: 2.1rem;
     color: #f3e5ab;
-    line-height: 1.6;
+    line-height: 1.7;
     padding: 0 10px;
 }
 
@@ -260,7 +312,7 @@ html, body {
     font-family: 'Cinzel', serif;
     font-size: 2.3rem;
     color: #d4af37;
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
 .fecha-destacada .mes {
@@ -273,7 +325,7 @@ html, body {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: 25px;
+    margin-top: 40px;
 }
 
 .caja-tiempo span {
@@ -301,13 +353,13 @@ html, body {
 .hora-evento {
     font-size: 1.25rem;
     color: #f3e5ab;
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
 .lugar-nombre {
     font-size: 1.15rem;
     color: #fff;
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
 .texto-claro {
@@ -321,7 +373,7 @@ html, body {
     border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
-    margin-top: 15px;
+    margin-top: 20px;
     cursor: pointer;
     border: none;
 }
@@ -334,7 +386,7 @@ html, body {
 
 .seccion-rsvp {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
     padding: 20px 10px;
 }
 
@@ -382,7 +434,7 @@ html, body {
 
 .frase-regalo {
     display: block;
-    margin-top: 25px;
+    margin-top: 35px;
     font-size: 2rem;
 }
 

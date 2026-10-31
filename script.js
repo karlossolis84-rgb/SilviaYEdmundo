@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     actualizarTextosPases();
     
-    // Asegurar que la música inicie pausada al cargar la portada
+    // Apagar música por completo al cargar la portada
     const musica = document.getElementById('musicaFondo');
     if (musica) {
         musica.pause();
@@ -37,36 +37,43 @@ function actualizarTextosPases() {
     if (textoPasesElemento) textoPasesElemento.textContent = numeroPases + (numeroPases === 1 ? ' pase' : ' pases');
 }
 
-// Abrir invitación y reproducir música
-function abrirInvitacionSobre() {
-    const solapaIzq = document.getElementById('solapaIzquierda');
-    const solapaDer = document.getElementById('solapaDerecha');
-    const contenidoPortada = document.getElementById('contenidoPortada');
+// 1. Al presionar el sello de la mariposa: se abre el sobre y aparece la tarjeta con nombres y pases
+function abrirSobre() {
+    const sup = document.getElementById('sobreSuperior');
+    const izq = document.getElementById('sobreIzquierda');
+    const der = document.getElementById('sobreDerecha');
+    const sello = document.getElementById('contenedorSello');
+    const tarjetaInterior = document.getElementById('tarjetaInterior');
+
+    if (sup && izq && der && sello) {
+        sup.classList.add('abrir-arriba');
+        izq.classList.add('abrir-izq');
+        der.classList.add('abrir-der');
+        sello.classList.add('desvanecer-centro');
+    }
+
+    setTimeout(() => {
+        sello.style.display = 'none';
+        tarjetaInterior.classList.remove('oculto');
+    }, 600);
+}
+
+// 2. Al presionar el botón "Ver Invitación": arranca la música y muestra la invitación completa
+function entrarInvitacionPrincipal() {
     const pantallaInicial = document.getElementById('pantallaInicial');
     const contenidoPrincipal = document.getElementById('contenidoPrincipal');
     const musica = document.getElementById('musicaFondo');
 
-    if (solapaIzq && solapaDer) {
-        solapaIzq.classList.add('abrir-izq');
-        solapaDer.classList.add('abrir-der');
-    }
-    
-    if (contenidoPortada) {
-        contenidoPortada.classList.add('desvanecer-centro');
-    }
-
     if (musica) {
-        musica.currentTime = 0; // Reiniciar canción desde el inicio
+        musica.currentTime = 0;
         musica.play().catch(error => {
-            console.log("Reproducción automática bloqueada:", error);
+            console.log("Reproducción bloqueada por el navegador:", error);
         });
     }
 
-    setTimeout(() => {
-        pantallaInicial.classList.add('oculto');
-        contenidoPrincipal.classList.remove('oculto');
-        iniciarContador();
-    }, 900);
+    pantallaInicial.classList.add('oculto');
+    contenidoPrincipal.classList.remove('oculto');
+    iniciarContador();
 }
 
 // Control de audio flotante

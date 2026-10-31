@@ -65,18 +65,23 @@
         </div>
     </div>
 
-    <!-- PANTALLA DE BIENVENIDA CON FONDO AZUL MARINO MATIZADO -->
+    <!-- PANTALLA INICIAL: ESTILO SOBRE DE CARTA CON MARIPOSA -->
     <section class="pantalla-inicial" id="pantallaInicial">
-        <!-- Solapa Izquierda -->
-        <div class="solapa-invitacion solapa-izquierda" id="solapaIzquierda"></div>
+        <!-- Solapas del Sobre que se abren -->
+        <div class="solapa sobre-superior" id="sobreSuperior"></div>
+        <div class="solapa sobre-izquierda" id="sobreIzquierda"></div>
+        <div class="solapa sobre-derecha" id="sobreDerecha"></div>
+        
+        <!-- Sello de Cera con Mariposa en el Centro -->
+        <div class="sello-mariposa-container" id="contenedorSello" onclick="abrirSobre()">
+            <div class="sello-cera">
+                <span class="icono-mariposa">🦋</span>
+            </div>
+        </div>
 
-        <!-- Solapa Derecha -->
-        <div class="solapa-invitacion solapa-derecha" id="solapaDerecha"></div>
-
-        <!-- Contenido Central de la Portada -->
-        <div class="contenido-portada-sobre" id="contenidoPortada">
+        <!-- Tarjeta Interior que aparece al abrir el sobre -->
+        <div class="tarjeta-interior-sobre oculto" id="tarjetaInterior">
             <div class="adorno-superior-elegante">✨ 🌿 ✨</div>
-            
             <h1 class="nombres-portada-cursiva">Edmundo</h1>
             <div class="conector-portada">&</div>
             <h1 class="nombres-portada-cursiva">Silvia</h1>
@@ -89,14 +94,14 @@
                 <div class="badge-pases" id="badgePasesTexto">2 Pases reservados</div>
             </div>
 
-            <!-- Botón de apertura -->
-            <button class="boton-abrir-sobre" onclick="abrirInvitacionSobre()">
-                <span>Abrir Invitación</span>
+            <!-- Segundo botón para ver la invitación con música -->
+            <button class="boton-abrir-sobre" onclick="entrarInvitacionPrincipal()">
+                <span>Ver Invitación</span>
             </button>
         </div>
     </section>
 
-    <!-- CONTENIDO PRINCIPAL DE LA INVITACIÓN (INICIA DIRECTAMENTE CON FOTO 1) -->
+    <!-- CONTENIDO PRINCIPAL DE LA INVITACIÓN -->
     <main class="invitacion-contenido oculto" id="contenidoPrincipal">
         
         <!-- Botón Flotante de Audio -->
@@ -104,7 +109,7 @@
 
         <div class="espaciador-grande"></div>
 
-        <!-- FOTO 1: LA PINTURA (PRIMER ELEMENTO AL ABRIR) -->
+        <!-- FOTO 1: LA PINTURA -->
         <section class="bloque-foto">
             <div class="contenedor-foto">
                 <img src="foto1.jpg" alt="Pintura Silvia y Edmundo" class="foto-difuminada">
