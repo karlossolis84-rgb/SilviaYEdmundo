@@ -1,8 +1,6 @@
-// Variables globales
 let numeroPases = 2;
 let nombreInvitado = "Familia e Invitados Especiales";
 
-// Detectar parámetros en la URL al cargar la página
 window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     
@@ -20,6 +18,13 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     actualizarTextosPases();
+    
+    // Asegurar que la música inicie pausada al cargar la portada
+    const musica = document.getElementById('musicaFondo');
+    if (musica) {
+        musica.pause();
+        musica.currentTime = 0;
+    }
 });
 
 function actualizarTextosPases() {
@@ -32,6 +37,7 @@ function actualizarTextosPases() {
     if (textoPasesElemento) textoPasesElemento.textContent = numeroPases + (numeroPases === 1 ? ' pase' : ' pases');
 }
 
+// Abrir invitación y reproducir música
 function abrirInvitacionSobre() {
     const solapaIzq = document.getElementById('solapaIzquierda');
     const solapaDer = document.getElementById('solapaDerecha');
@@ -40,7 +46,6 @@ function abrirInvitacionSobre() {
     const contenidoPrincipal = document.getElementById('contenidoPrincipal');
     const musica = document.getElementById('musicaFondo');
 
-    // Iniciar animación de apertura hacia los lados
     if (solapaIzq && solapaDer) {
         solapaIzq.classList.add('abrir-izq');
         solapaDer.classList.add('abrir-der');
@@ -50,14 +55,13 @@ function abrirInvitacionSobre() {
         contenidoPortada.classList.add('desvanecer-centro');
     }
 
-    // Reproducir música de fondo
     if (musica) {
+        musica.currentTime = 0; // Reiniciar canción desde el inicio
         musica.play().catch(error => {
-            console.log("El navegador requirió interacción previa para audio:", error);
+            console.log("Reproducción automática bloqueada:", error);
         });
     }
 
-    // Esperar a que se abran las puertas para mostrar el contenido
     setTimeout(() => {
         pantallaInicial.classList.add('oculto');
         contenidoPrincipal.classList.remove('oculto');
@@ -65,6 +69,7 @@ function abrirInvitacionSobre() {
     }, 900);
 }
 
+// Control de audio flotante
 function toggleMusica() {
     const musica = document.getElementById('musicaFondo');
     const btnAudio = document.getElementById('btnAudio');

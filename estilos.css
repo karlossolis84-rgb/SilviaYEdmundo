@@ -14,44 +14,130 @@ html, body {
     overflow-x: hidden;
 }
 
-/* CLASE PARA OCULTAR */
 .oculto {
     display: none !important;
 }
 
-/* CONTENEDOR PRINCIPAL CON HOJAS Y DESTELLOS DORADOS DIFUSOS DE FONDO */
-.pantalla-inicial, .invitacion-contenido {
+/* CONTENEDOR PRINCIPAL CON AZUL MARINO MATIZADO */
+.invitacion-contenido {
     width: 100%;
     max-width: 450px;
     margin: 0 auto;
-    background-color: #0d1b2a;
-    background-image: 
-        radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.22) 0%, transparent 45%),
-        radial-gradient(circle at 85% 40%, rgba(212, 175, 55, 0.18) 0%, transparent 50%),
-        radial-gradient(circle at 20% 75%, rgba(212, 175, 55, 0.15) 0%, transparent 45%),
-        radial-gradient(circle at 80% 90%, rgba(212, 175, 55, 0.20) 0%, transparent 50%),
-        linear-gradient(to bottom, #0d1b2a, #07131d, #050e16);
+    background: linear-gradient(to bottom, #0d1b2a, #07131d, #050e16);
     background-attachment: fixed;
     box-shadow: 0 0 30px rgba(0,0,0,0.8);
     padding: 20px 25px;
 }
 
-/* PANTALLA INICIAL */
+/* NOMBRES DE PORTADA EN CURSIVA DORADA */
+.nombres-portada-cursiva {
+    font-family: 'Great Vibes', cursive;
+    color: #f3e5ab;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+}
+
+.conector-portada {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    font-size: 1.5rem;
+    margin: 5px 0;
+}
+
+.sub-bodas-oro {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.adorno-superior-elegante {
+    font-size: 1.2rem;
+    color: #d4af37;
+    margin-bottom: 15px;
+    letter-spacing: 8px;
+}
+
+/* PANTALLA INICIAL Y SOLAPAS CON AZUL MARINO MATIZADO LIMPIO */
 .pantalla-inicial {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 450px;
     min-height: 100vh;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, #0d1b2a, #07131d);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.tarjeta-bienvenida {
-    background: transparent;
-    padding: 40px 10px;
-    width: 100%;
-    text-align: center;
+.solapa-invitacion {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, #0d1b2a 0%, #061018 100%);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    z-index: 10;
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-/* TIPOGRAFÍA Y ESTILOS DORADOS */
+.solapa-izquierda {
+    left: 0;
+    border-right: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.solapa-derecha {
+    right: 0;
+    border-left: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.contenido-portada-sobre {
+    position: relative;
+    z-index: 20;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    transition: opacity 0.5s ease;
+}
+
+.abrir-izq {
+    transform: translateX(-100%);
+}
+
+.abrir-der {
+    transform: translateX(100%);
+}
+
+.desvanecer-centro {
+    opacity: 0;
+}
+
+.boton-abrir-sobre {
+    background: linear-gradient(45deg, #b8860b, #e6c667);
+    color: #0d1b2a;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 14px 32px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    margin-top: 25px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
+    transition: transform 0.2s;
+}
+
+.boton-abrir-sobre:hover {
+    transform: scale(1.05);
+}
+
+/* RESTO DE ESTILOS GENERALES */
 .nombres-principales {
     font-family: 'Cinzel', serif;
     color: #d4af37;
@@ -75,62 +161,35 @@ html, body {
     margin: 10px 0;
 }
 
-.conector {
-    color: #d4af37;
-    text-align: center;
-    margin: 15px 0;
-    font-size: 1.2rem;
-}
-
 .invitados-selector {
-    margin: 35px 0;
+    margin: 25px 0;
 }
 
 .pases-texto {
     display: block;
-    margin-bottom: 8px;
-    color: #ccc;
-    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #aaa;
+    font-size: 0.85rem;
 }
 
-select {
-    background: #1b263b;
-    color: #d4af37;
+.nombre-invitado-pantalla {
+    font-family: 'Cinzel', serif;
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+.badge-pases {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.15);
     border: 1px solid #d4af37;
-    padding: 8px 15px;
-    border-radius: 8px;
-    font-size: 1rem;
-    outline: none;
+    color: #f3e5ab;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-top: 5px;
 }
 
-/* SELLO DE LACRE */
-.sello-lacre {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #e6c667 0%, #b8860b 70%, #8b6508 100%);
-    border: 2px solid #fff3c4;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.6), inset 0 0 10px rgba(0,0,0,0.4);
-    cursor: pointer;
-    margin: 20px auto 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s;
-}
-
-.sello-lacre:hover {
-    transform: scale(1.05);
-}
-
-.sello-lacre span {
-    font-family: 'Great Vibes', cursive;
-    color: #3d2600;
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-
-/* BOTÓN AUDIO */
 .boton-audio {
     position: fixed;
     bottom: 20px;
@@ -147,13 +206,12 @@ select {
 }
 
 .espaciador-grande {
-    height: 30px;
+    height: 10px;
 }
 
-/* SECCIONES LIBRES (SIN RECUADROS, MUCHO ESPACIO) */
 .seccion-limpia {
     text-align: center;
-    margin-bottom: 80px; /* Gran espacio entre secciones */
+    margin-bottom: 80px;
     padding: 10px 5px;
 }
 
@@ -167,9 +225,8 @@ select {
     border-top: 1px dashed rgba(212, 175, 55, 0.25);
 }
 
-/* FOTOS CON AMPLIO ESPACIO */
 .bloque-foto {
-    margin-bottom: 80px; /* Gran espacio entre imágenes y textos */
+    margin-bottom: 80px;
 }
 
 .contenedor-foto {
@@ -211,7 +268,6 @@ select {
     font-style: italic;
 }
 
-/* CONTADOR CON PUNTOS SEPARADORES */
 .contador-grid {
     display: flex;
     justify-content: center;
@@ -254,12 +310,6 @@ select {
     margin: 5px 0;
 }
 
-.lugar-sub {
-    font-size: 0.95rem;
-    color: #bbb;
-    margin-bottom: 20px;
-}
-
 .texto-claro {
     color: #e0e1dd;
     font-size: 1.1rem;
@@ -282,7 +332,6 @@ select {
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* ÚNICA CAJA CON RECUADRO (CONFIRMACIÓN) */
 .seccion-rsvp {
     text-align: center;
     margin-bottom: 50px;
@@ -324,7 +373,6 @@ select {
     margin-bottom: 20px;
 }
 
-/* ESTILO PARA LA NOTA DEL INE */
 .nota-ine {
     font-size: 0.9rem;
     color: #f3e5ab;
@@ -332,7 +380,13 @@ select {
     letter-spacing: 0.5px;
 }
 
-/* ESTILOS DEL PANEL DE ADMINISTRACIÓN */
+.frase-regalo {
+    display: block;
+    margin-top: 25px;
+    font-size: 2rem;
+}
+
+/* PANEL ADMIN */
 .panel-admin {
     position: fixed;
     top: 0;
@@ -402,273 +456,4 @@ select {
     cursor: pointer;
     font-size: 0.85rem;
     text-decoration: underline;
-}
-
-/* NOMBRE Y BADGE DE PASES DEL INVITADO */
-.nombre-invitado-pantalla {
-    font-family: 'Cinzel', serif;
-    color: #fff;
-    font-size: 1.3rem;
-    margin: 8px 0;
-}
-
-.badge-pases {
-    display: inline-block;
-    background: rgba(212, 175, 55, 0.15);
-    border: 1px solid #d4af37;
-    color: #f3e5ab;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    margin-top: 5px;
-}
-
-
-/* ESTILO PARA LA FRASE DE REGALO */
-.frase-regalo {
-    display: block;
-    margin-top: 25px; /* Espacio debajo de la nota especial */
-    font-size: 2rem;
-}
-
-.marco-floral-portada {
-    background: rgba(13, 27, 42, 0.9);
-    border: 1px solid rgba(212, 175, 55, 0.4);
-    border-radius: 20px;
-    padding: 40px 20px;
-    width: 100%;
-    max-width: 390px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-    backdrop-filter: blur(8px);
-    transition: transform 0.7s ease, opacity 0.7s ease;
-}
-
-/* Animación de apertura estilo pop-up / florecimiento */
-.efecto-abrir {
-    transform: scale(1.15);
-    opacity: 0;
-}
-
-.adorno-floral {
-    font-size: 1.5rem;
-    letter-spacing: 5px;
-    margin: 10px 0;
-    opacity: 0.9;
-}
-
-.boton-abrir-floral {
-    display: inline-block;
-    background: linear-gradient(45deg, #b8860b, #e6c667);
-    color: #0d1b2a;
-    font-family: 'Cinzel', serif;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 12px 30px;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    margin-top: 25px;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-    transition: transform 0.2s;
-}
-
-.boton-abrir-floral:hover {
-    transform: scale(1.05);
-}
-
-/* EFECTO SOBRE / APERTURA FLORAL */
-.pantalla-inicial {
-    position: relative;
-    overflow: hidden;
-}
-
-.solapa-invitacion {
-    position: absolute;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    background-color: #0d1b2a;
-    background-image: radial-gradient(circle at center, rgba(212, 175, 55, 0.15), transparent);
-    border-color: rgba(212, 175, 55, 0.3);
-    border-style: solid;
-    z-index: 10;
-    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.solapa-izquierda {
-    left: 0;
-    border-right-width: 1px;
-}
-
-.solapa-derecha {
-    right: 0;
-    border-left-width: 1px;
-}
-
-.decoracion-flores {
-    font-size: 3rem;
-    opacity: 0.8;
-}
-
-.contenido-portada-sobre {
-    position: relative;
-    z-index: 20;
-    text-align: center;
-    transition: opacity 0.5s ease;
-}
-
-/* Clases que activan la animación al hacer clic */
-.abrir-izq {
-    transform: translateX(-100%);
-}
-
-.abrir-der {
-    transform: translateX(100%);
-}
-
-.desvanecer-centro {
-    opacity: 0;
-}
-
-.boton-abrir-sobre {
-    background: linear-gradient(45deg, #b8860b, #e6c667);
-    color: #0d1b2a;
-    font-family: 'Cinzel', serif;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 14px 32px;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    margin-top: 25px;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
-}
-
-/* ESTILOS DE PORTADA REFINADOS Y NOMBRES EN CURSIVA DORADA */
-.nombres-portada-cursiva {
-    font-family: 'Great Vibes', cursive;
-    color: #f3e5ab;
-    font-size: 3.5rem;
-    line-height: 1.1;
-    text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
-}
-
-.conector-portada {
-    font-family: 'Cinzel', serif;
-    color: #d4af37;
-    font-size: 1.5rem;
-    margin: 5px 0;
-}
-
-.sub-bodas-oro {
-    font-family: 'Cinzel', serif;
-    color: #d4af37;
-    font-size: 1.1rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-.adorno-superior-elegante {
-    font-size: 1.2rem;
-    color: #d4af37;
-    margin-bottom: 15px;
-    letter-spacing: 8px;
-}
-
-/* MARCO Y SOLAPAS DE APERTURA */
-.pantalla-inicial {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    max-width: 450px;
-    min-height: 100vh;
-    margin: 0 auto;
-    background-color: #0d1b2a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.solapa-invitacion {
-    position: absolute;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    background-color: #0d1b2a;
-    background-image: 
-        radial-gradient(circle at center, rgba(212, 175, 55, 0.18) 0%, transparent 70%),
-        linear-gradient(to bottom, #0d1b2a, #07131d);
-    border: 1px solid rgba(212, 175, 55, 0.4);
-    z-index: 10;
-    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
-    display: flex;
-    align-items: center;
-}
-
-.solapa-izquierda {
-    left: 0;
-    border-right: 1px solid rgba(212, 175, 55, 0.4);
-    justify-content: flex-end;
-}
-
-.solapa-derecha {
-    right: 0;
-    border-left: 1px solid rgba(212, 175, 55, 0.4);
-    justify-content: flex-start;
-}
-
-/* Adornos florales finos en las solapas */
-.rama-floral {
-    width: 30px;
-    height: 100px;
-    background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.3), transparent);
-    border-radius: 50%;
-    margin: 0 10px;
-}
-
-.contenido-portada-sobre {
-    position: relative;
-    z-index: 20;
-    text-align: center;
-    padding: 20px;
-    width: 100%;
-    transition: opacity 0.5s ease;
-}
-
-/* Animación de apertura */
-.abrir-izq {
-    transform: translateX(-100%);
-}
-
-.abrir-der {
-    transform: translateX(100%);
-}
-
-.desvanecer-centro {
-    opacity: 0;
-}
-
-.boton-abrir-sobre {
-    background: linear-gradient(45deg, #b8860b, #e6c667);
-    color: #0d1b2a;
-    font-family: 'Cinzel', serif;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 14px 32px;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    margin-top: 25px;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
-    transition: transform 0.2s;
-}
-
-.boton-abrir-sobre:hover {
-    transform: scale(1.05);
 }
